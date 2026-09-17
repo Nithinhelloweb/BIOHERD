@@ -1,0 +1,76 @@
+{
+  "@@locale": "en",
+  "appName": "BIOHERD",
+  "tagline": "Healthy Animals. Prosperous Farmers.",
+  "namaste": "Namaste",
+  "welcomeMessage": "Namaste, {name}",
+  "@welcomeMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "farmSummary": "Farm Summary",
+  "myAnimals": "My Animals",
+  "scanQr": "Scan QR",
+  "reportSymptom": "Report Symptom",
+  "vaccinations": "Vaccinations",
+  "upcomingVaccinations": "Upcoming Vaccinations",
+  "recentActivity": "Recent Activity",
+  "activeAlerts": "Active Alerts",
+  "noActiveAlerts": "No active disease alerts in your area.",
+  "viewAll": "See all",
+  "severityLow": "Low",
+  "severityMedium": "Medium",
+  "severityHigh": "High",
+  "severityCritical": "Critical",
+  "offlineBanner": "You're offline. Data will sync when connected.",
+  "syncingBanner": "Syncing... {count} items pending",
+  "@syncingBanner": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "aiAssisted": "AI-Assisted Diagnostic",
+  "confidenceScore": "Confidence: {percent}%",
+  "@confidenceScore": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "whatToDoNext": "Recommended Next Steps",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "tryAgain": "Try Again",
+  "loading": "Loading...",
+  "emptyStateNoAnimals": "No animals registered yet. Add your first animal to track its health.",
+  "errorStateGeneral": "Something went wrong. Please check your connection and try again.",
+  "language": "Language",
+  "english": "English",
+  "marathi": "मराठी",
+  "hindi": "हिंदी",
+  "login": "Login",
+  "register": "Register",
+  "phoneNumber": "Phone Number",
+  "password": "Password",
+  "fullName": "Full Name",
+  "role": "Role",
+  "district": "District",
+  "farmer": "Farmer",
+  "veterinarian": "Veterinarian",
+  "dairyCooperative": "Dairy Cooperative",
+  "dvoOfficer": "DVO Officer",
+  "twoFactorAuth": "Two-Factor Authentication",
+  "enterOtp": "Enter 6-digit Authenticator Code",
+  "verify": "Verify",
+  "logout": "Logout",
+  "dontHaveAccount": "Don't have an account? Register",
+  "alreadyHaveAccount": "Already have an account? Login",
+  "invalidPhone": "Please enter a valid 10-digit phone number",
+  "passwordRequired": "Password must be at least 8 characters"
+}
