@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:bioherd/core/layout/bioherd_shell.dart';
 import 'package:bioherd/core/theme/hallmark_tokens.dart';
 import 'package:bioherd/features/auth/bloc/auth_bloc.dart';
 import 'package:bioherd/features/auth/bloc/auth_event.dart';
@@ -45,6 +46,7 @@ class ProfileScreen extends StatelessWidget {
         return Scaffold(
           backgroundColor: surfaceBg,
           appBar: AppBar(
+            leading: const BioHerdHamburgerButton(),
             title: const Text('Account & Security', style: TextStyle(fontWeight: FontWeight.bold)),
             backgroundColor: cardBg,
             elevation: 0,
@@ -190,13 +192,30 @@ class ProfileScreen extends StatelessWidget {
           {'title': 'Prescription Writing', 'allowed': false},
         ];
         break;
+      case UserRole.paravet:
+        perms = [
+          {'title': 'First-Responder Symptom & Mortality Reporting', 'allowed': true},
+          {'title': 'Vaccination Drive Field Administration', 'allowed': true},
+          {'title': 'Offline Field Sync in Remote Hamlets', 'allowed': true},
+          {'title': 'Prescription Writing', 'allowed': false},
+        ];
+        break;
+      case UserRole.labTechnician:
+        perms = [
+          {'title': 'Diagnostic Sample Receipt & Cold Chain Log', 'allowed': true},
+          {'title': 'RT-PCR / ELISA / Serology Test Entry', 'allowed': true},
+          {'title': 'Apex Referral to SDDL / NIHSAD Bhopal', 'allowed': true},
+          {'title': 'Prescription Writing', 'allowed': false},
+        ];
+        break;
       case UserRole.dvoOfficer:
       case UserRole.stateAdmin:
+      case UserRole.superAdmin:
         perms = [
           {'title': 'District & State Disease Surveillance Map', 'allowed': true},
           {'title': 'Declare Containment & Quarantine Zones', 'allowed': true},
           {'title': 'Dispatch Rapid Response Vet Teams', 'allowed': true},
-          {'title': 'Automated Maharashtra AHD Reports', 'allowed': true},
+          {'title': 'Automated Maharashtra AHD Reports & Audits', 'allowed': true},
         ];
         break;
     }

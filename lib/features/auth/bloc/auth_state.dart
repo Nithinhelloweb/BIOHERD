@@ -15,7 +15,9 @@ class AuthLoading extends AuthState {
 
 class AuthUnauthenticated extends AuthState {
   final String? errorMessage;
-  const AuthUnauthenticated({this.errorMessage});
+  /// True when error was caused by no network/backend being down.
+  final bool isOfflineError;
+  const AuthUnauthenticated({this.errorMessage, this.isOfflineError = false});
 }
 
 class AuthRequires2FA extends AuthState {
@@ -32,7 +34,9 @@ class AuthRequires2FA extends AuthState {
 
 class AuthAuthenticated extends AuthState {
   final UserModel user;
-  const AuthAuthenticated({required this.user});
+  /// True when the session is a local demo (no real JWT).
+  final bool isDemoMode;
+  const AuthAuthenticated({required this.user, this.isDemoMode = false});
 }
 
 class AuthRegisterSuccess extends AuthState {

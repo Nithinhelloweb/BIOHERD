@@ -10,7 +10,10 @@ import 'package:bioherd/core/widgets/severity_badge.dart';
 import 'package:bioherd/features/symptoms/bloc/symptom_bloc.dart';
 import 'package:bioherd/features/symptoms/models/symptom_model.dart';
 import 'package:bioherd/features/symptoms/presentation/ai_results_screen.dart';
+import 'package:bioherd/features/symptoms/presentation/mortality_report_dialog.dart';
 import 'package:bioherd/features/symptoms/presentation/symptom_wizard_screen.dart';
+import 'package:bioherd/core/layout/bioherd_shell.dart';
+import 'package:bioherd/features/symptoms/presentation/telecom_offline_screen.dart';
 import 'package:bioherd/features/veterinary/presentation/veterinarian_workspace_screen.dart';
 
 /// Diagnosis Dashboard Screen for BIOHERD
@@ -38,11 +41,12 @@ class _DiagnosisDashboardScreenState extends State<DiagnosisDashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const BioHerdHamburgerButton(),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('AI Disease Screening', style: AppTextStyles.h2(color: AppColors.neutral900)),
-            Text('रोग निदान व कृत्रिम बुद्धिमत्ता विश्लेषण', style: AppTextStyles.caption(color: AppColors.neutral500)),
+            Text('Disease Diagnosis & AI Intelligence Analysis', style: AppTextStyles.caption(color: AppColors.neutral500)),
           ],
         ),
         backgroundColor: Colors.white,
@@ -100,7 +104,7 @@ class _DiagnosisDashboardScreenState extends State<DiagnosisDashboardScreen> {
                     ),
                     AppSpacing.vSpace16,
                     BioHerdButton(
-                      label: 'Start New AI Symptom Report / नवीन तपासणी',
+                      label: 'Start New AI Symptom Report',
                       icon: const Icon(PhosphorIconsRegular.plusCircle, color: Colors.white, size: 20),
                       onPressed: () {
                         Navigator.of(context).push(
@@ -109,6 +113,55 @@ class _DiagnosisDashboardScreenState extends State<DiagnosisDashboardScreen> {
                           ),
                         ).then((_) => _refresh());
                       },
+                    ),
+                    AppSpacing.vSpace12,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: OutlinedButton.icon(
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: AppColors.danger600,
+                              side: const BorderSide(color: AppColors.danger500, width: 1.5),
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            ),
+                            icon: const Icon(PhosphorIconsRegular.skull, size: 18),
+                            label: const Text(
+                              'Report Sudden Death',
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                            ),
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (_) => const MortalityReportDialog(),
+                              ).then((_) => _refresh());
+                            },
+                          ),
+                        ),
+                        AppSpacing.hSpace12,
+                        Expanded(
+                          child: OutlinedButton.icon(
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: AppColors.primary700,
+                              side: const BorderSide(color: AppColors.primary600, width: 1.5),
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            ),
+                            icon: const Icon(PhosphorIconsRegular.phoneCall, size: 18),
+                            label: const Text(
+                              '1800 IVR / SMS / Sync',
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => const TelecomOfflineScreen(),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -247,7 +300,7 @@ class _DiagnosisDashboardScreenState extends State<DiagnosisDashboardScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Recent Diagnostic Screenings', style: AppTextStyles.h3()),
-                      Text('अलीकडील तपासण्या व पशुवैद्यकीय नोंदी', style: AppTextStyles.caption(color: AppColors.neutral500)),
+                      Text('Recent Screenings & Veterinary Records', style: AppTextStyles.caption(color: AppColors.neutral500)),
                     ],
                   ),
                   TextButton.icon(

@@ -4,12 +4,12 @@ import 'package:bioherd/core/theme/app_colors.dart';
 import 'package:bioherd/core/widgets/severity_badge.dart';
 
 enum AnimalSpeciesEnum {
-  cattle('cattle', 'Cattle / गाय-बैल', 'गाय / गोवंश', PhosphorIconsRegular.cow),
-  buffalo('buffalo', 'Buffalo / म्हैस', 'म्हैस', PhosphorIconsRegular.shieldChevron),
-  goat('goat', 'Goat / शेळी', 'शेळी', PhosphorIconsRegular.pawPrint),
-  sheep('sheep', 'Sheep / मेंढी', 'मेंढी', PhosphorIconsRegular.pawPrint),
-  pig('pig', 'Pig / वराह', 'वराह', PhosphorIconsRegular.pawPrint),
-  poultry('poultry', 'Poultry / कुक्कुट', 'कुक्कुट', PhosphorIconsRegular.egg);
+  cattle('cattle', 'Cattle', 'Cattle', PhosphorIconsRegular.cow),
+  buffalo('buffalo', 'Buffalo', 'Buffalo', PhosphorIconsRegular.shieldChevron),
+  goat('goat', 'Goat', 'Goat', PhosphorIconsRegular.pawPrint),
+  sheep('sheep', 'Sheep', 'Sheep', PhosphorIconsRegular.pawPrint),
+  pig('pig', 'Pig', 'Pig', PhosphorIconsRegular.pawPrint),
+  poultry('poultry', 'Poultry', 'Poultry', PhosphorIconsRegular.egg);
 
   final String value;
   final String displayName;
@@ -27,10 +27,10 @@ enum AnimalSpeciesEnum {
 }
 
 enum HealthStatus {
-  healthy('healthy', 'Healthy', 'निरोगी', SeverityLevel.low, AppColors.success600, AppColors.success100),
-  underObservation('under_observation', 'Under Observation', 'निरीक्षणाखाली', SeverityLevel.medium, AppColors.warning600, AppColors.warning100),
-  quarantined('quarantined', 'Quarantined', 'विलगीकरणात', SeverityLevel.high, AppColors.warning600, AppColors.warning100),
-  sick('sick', 'Sick / Alert', 'आजारी / दक्ष', SeverityLevel.critical, AppColors.danger600, AppColors.danger100);
+  healthy('healthy', 'Healthy', 'Healthy', SeverityLevel.low, AppColors.success600, AppColors.success100),
+  underObservation('under_observation', 'Under Observation', 'Under Observation', SeverityLevel.medium, AppColors.warning600, AppColors.warning100),
+  quarantined('quarantined', 'Quarantined', 'Quarantined', SeverityLevel.high, AppColors.warning600, AppColors.warning100),
+  sick('sick', 'Sick', 'Sick', SeverityLevel.critical, AppColors.danger600, AppColors.danger100);
 
   final String value;
   final String label;

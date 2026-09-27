@@ -130,7 +130,7 @@ class _AIResultsScreenState extends State<AIResultsScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'PRIMARY PREDICTION / मुख्य निदान',
+                              'PRIMARY PREDICTION',
                               style: AppTextStyles.caption(color: AppColors.neutral500)
                                   .copyWith(fontWeight: FontWeight.w700),
                             ),
@@ -138,11 +138,6 @@ class _AIResultsScreenState extends State<AIResultsScreen> {
                             Text(
                               primary.nameEn,
                               style: AppTextStyles.h1(color: AppColors.neutral900),
-                            ),
-                            Text(
-                              primary.nameMr,
-                              style: AppTextStyles.body(color: AppColors.primary600)
-                                  .copyWith(fontWeight: FontWeight.w600),
                             ),
                           ],
                         ),
@@ -314,7 +309,7 @@ class _AIResultsScreenState extends State<AIResultsScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Emergency First-Aid / तातडीची प्रथमोपचार',
+                              'Emergency First-Aid',
                               style: AppTextStyles.h3().copyWith(fontSize: 16),
                             ),
                             Text(
@@ -333,7 +328,7 @@ class _AIResultsScreenState extends State<AIResultsScreen> {
                     icon: PhosphorIconsRegular.lock,
                     iconColor: AppColors.danger600,
                     titleEn: 'Immediate Quarantine',
-                    titleMr: 'तातडीचे विलगीकरण',
+                    titleMr: 'Immediate Quarantine',
                     descEn: firstAid.immediateActionEn,
                     descMr: firstAid.immediateActionMr,
                   ),
@@ -344,7 +339,7 @@ class _AIResultsScreenState extends State<AIResultsScreen> {
                     icon: PhosphorIconsRegular.sparkle,
                     iconColor: AppColors.primary600,
                     titleEn: 'Disinfection & Stall Hygiene',
-                    titleMr: 'गोठा निर्जंतुकीकरण व स्वच्छता',
+                    titleMr: 'Disinfection & Stall Hygiene',
                     descEn: firstAid.sanitationEn,
                     descMr: firstAid.sanitationMr,
                   ),
@@ -367,7 +362,7 @@ class _AIResultsScreenState extends State<AIResultsScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Emergency Toll-Free Helpline / पशुसंवर्धन हेल्पलाईन',
+                                'Emergency Toll-Free Helpline',
                                 style: AppTextStyles.caption(color: AppColors.neutral600),
                               ),
                               Text(
@@ -415,8 +410,8 @@ class _AIResultsScreenState extends State<AIResultsScreen> {
             // Action Buttons
             BioHerdButton(
               label: _caseContacted
-                  ? 'Veterinarian Alerted ✓ (केस दाखल)'
-                  : 'Consult District Veterinarian / पशुवैद्यांशी संपर्क',
+                  ? 'Veterinarian Alerted ✓'
+                  : 'Consult District Veterinarian',
               icon: Icon(
                 _caseContacted ? PhosphorIconsRegular.checkCircle : PhosphorIconsRegular.phoneCall,
                 color: Colors.white,
@@ -437,7 +432,7 @@ class _AIResultsScreenState extends State<AIResultsScreen> {
             AppSpacing.vSpace12,
 
             BioHerdButton(
-              label: 'Back to Herd / गोठ्याकडे परत',
+              label: 'Back to Herd',
               variant: BioHerdButtonVariant.secondary,
               onPressed: () => Navigator.of(context).pop(),
             ),
@@ -466,19 +461,14 @@ class _AIResultsScreenState extends State<AIResultsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '$titleEn • $titleMr',
+                titleEn,
                 style: AppTextStyles.bodySmall(color: AppColors.neutral900)
                     .copyWith(fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 2),
               Text(
-                descMr,
-                style: AppTextStyles.bodySmall(color: AppColors.neutral700),
-              ),
-              const SizedBox(height: 2),
-              Text(
                 descEn,
-                style: AppTextStyles.caption(color: AppColors.neutral500),
+                style: AppTextStyles.bodySmall(color: AppColors.neutral700),
               ),
             ],
           ),

@@ -147,12 +147,17 @@ class AuthUserCard extends StatelessWidget {
     switch (role) {
       case UserRole.farmer:
         return BioHerdBadgeVariant.success;
+      case UserRole.paravet:
+        return BioHerdBadgeVariant.info;
       case UserRole.veterinarian:
         return BioHerdBadgeVariant.info;
+      case UserRole.labTechnician:
+        return BioHerdBadgeVariant.neutral;
       case UserRole.dairyCoop:
         return BioHerdBadgeVariant.warning;
       case UserRole.dvoOfficer:
       case UserRole.stateAdmin:
+      case UserRole.superAdmin:
         return BioHerdBadgeVariant.critical;
     }
   }

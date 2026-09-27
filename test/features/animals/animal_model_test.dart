@@ -12,8 +12,8 @@ void main() {
       expect(AnimalSpeciesEnum.fromString('poultry'), AnimalSpeciesEnum.poultry);
       expect(AnimalSpeciesEnum.fromString('unknown_species'), AnimalSpeciesEnum.cattle);
 
-      expect(AnimalSpeciesEnum.cattle.displayName, contains('गाय'));
-      expect(AnimalSpeciesEnum.buffalo.displayName, contains('म्हैस'));
+      expect(AnimalSpeciesEnum.cattle.displayName, 'Cattle');
+      expect(AnimalSpeciesEnum.buffalo.displayName, 'Buffalo');
     });
 
     test('HealthStatus triage levels and color mappings', () {
@@ -60,17 +60,17 @@ void main() {
     test('Breed JSON serialization', () {
       const breed = Breed(
         name: 'Pandharpuri',
-        nameMr: 'पंढरपुरी',
+        nameMr: 'Pandharpuri',
         species: AnimalSpeciesEnum.buffalo,
         originRegion: 'Bhima Basin',
         districts: ['Solapur', 'Kolhapur'],
         description: 'Sword shaped horns',
-        descriptionMr: 'लांब तलवारीसारखी शिंगे',
+        descriptionMr: 'Sword shaped horns',
       );
 
       final json = breed.toJson();
       expect(json['name'], 'Pandharpuri');
-      expect(json['name_mr'], 'पंढरपुरी');
+      expect(json['name_mr'], 'Pandharpuri');
 
       final reconstructed = Breed.fromJson(json);
       expect(reconstructed.name, 'Pandharpuri');

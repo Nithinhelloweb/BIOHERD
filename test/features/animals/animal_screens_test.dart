@@ -38,7 +38,7 @@ void main() {
 
       // Verify Header and Subtitle
       expect(find.text('Livestock Registry'), findsOneWidget);
-      expect(find.text('पशुधन नोंदणी व आरोग्य व्यवस्थापन'), findsOneWidget);
+      expect(find.text('Livestock Registration & Health Management'), findsOneWidget);
 
       // Verify Stats row
       expect(find.text('Total Herd'), findsOneWidget);
@@ -49,7 +49,7 @@ void main() {
       expect(find.textContaining('Gir'), findsWidgets);
 
       // Verify FAB
-      expect(find.text('Register Animal / नोंदणी'), findsOneWidget);
+      expect(find.text('Register Animal'), findsOneWidget);
 
       bloc.close();
     });
@@ -87,7 +87,7 @@ void main() {
       final passport = AnimalPassport(
         animalId: 'test-01',
         tagId: 'MH-SOL-KHL-201',
-        species: 'Cattle / गाय',
+        species: 'Cattle',
         breed: 'Khillari',
         sex: 'male',
         weightKg: 485.0,
@@ -118,7 +118,7 @@ void main() {
       expect(find.text('MH-SOL-KHL-201'), findsOneWidget);
       expect(find.textContaining('Khillari'), findsWidgets);
       expect(find.text('VERIFICATION HASH: 3E9D2C8A7B6F1C4E'), findsOneWidget);
-      expect(find.text('Print / शेअर करा'), findsOneWidget);
+      expect(find.text('Print'), findsOneWidget);
     });
   });
 }

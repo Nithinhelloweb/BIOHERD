@@ -14,10 +14,16 @@ class AppColors {
   static const Color primary50 = Color(0xFFEAF7EE);  // Section backgrounds, ripple effects
 
   // Semantic Colors
+  static const Color danger900 = Color(0xFF7F1D1D);
   static const Color danger600 = Color(0xFFC0392B);  // Critical alerts, destructive actions, high severity
+  static const Color danger500 = Color(0xFFE53935);
   static const Color danger100 = Color(0xFFFADBD8);  // Danger background fills
+  static const Color warning700 = Color(0xFFB45309);
   static const Color warning600 = Color(0xFFD35400); // Medium severity, caution states
+  static const Color warning500 = Color(0xFFF59E0B);
+  static const Color warning400 = Color(0xFFFB923C);
   static const Color warning100 = Color(0xFFFAE5D3); // Warning background fills
+  static const Color warning50 = Color(0xFFFFFBEB);
   static const Color info600 = Color(0xFF1A5276);    // Informational, IoT data
   static const Color info100 = Color(0xFFD6EAF8);    // Info background fills
   static const Color success600 = Color(0xFF1E8449); // Confirmation, resolved cases, healthy readings

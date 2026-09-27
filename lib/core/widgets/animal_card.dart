@@ -29,16 +29,16 @@ class AnimalCard extends StatelessWidget {
 
   IconData _getSpeciesIcon(String speciesName) {
     final lower = speciesName.toLowerCase();
-    if (lower.contains('cow') || lower.contains('cattle') || lower.contains('bull') || lower.contains('गाय')) {
+    if (lower.contains('cow') || lower.contains('cattle') || lower.contains('bull')) {
       return PhosphorIconsRegular.cow;
     }
-    if (lower.contains('buffalo') || lower.contains('म्हैस')) {
+    if (lower.contains('buffalo')) {
       return PhosphorIconsRegular.shieldChevron;
     }
-    if (lower.contains('sheep') || lower.contains('goat') || lower.contains('शेळी') || lower.contains('मेंढी')) {
+    if (lower.contains('sheep') || lower.contains('goat')) {
       return PhosphorIconsRegular.pawPrint;
     }
-    if (lower.contains('poultry') || lower.contains('chicken') || lower.contains('कोंबडी')) {
+    if (lower.contains('poultry') || lower.contains('chicken')) {
       return PhosphorIconsRegular.egg;
     }
     return PhosphorIconsRegular.cow;

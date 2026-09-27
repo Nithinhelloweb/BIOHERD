@@ -48,6 +48,10 @@ class AppTextStyles {
   static TextStyle h3({Color color = AppColors.neutral900, bool isDevanagari = false, FontWeight? fontWeight}) =>
       _font(fontSize: 18, fontWeight: fontWeight ?? FontWeight.w600, height: 1.35, color: color, isDevanagari: isDevanagari);
 
+  // Subtitle — 16sp / 600 / 1.4
+  static TextStyle subtitle({Color color = AppColors.neutral900, bool isDevanagari = false, FontWeight? fontWeight}) =>
+      _font(fontSize: 16, fontWeight: fontWeight ?? FontWeight.w600, height: 1.4, color: color, isDevanagari: isDevanagari);
+
   // Body Large — 16sp / 400 / 1.6
   static TextStyle bodyLarge({Color color = AppColors.neutral900, bool isDevanagari = false, FontWeight? fontWeight}) =>
       _font(fontSize: 16, fontWeight: fontWeight ?? FontWeight.w400, height: 1.6, color: color, isDevanagari: isDevanagari);

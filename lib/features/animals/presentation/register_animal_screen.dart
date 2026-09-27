@@ -194,7 +194,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
                       children: [
                         Expanded(
                           child: BioHerdInputField(
-                            label: 'Ear Tag ID (कानपट्टी क्रमांक)',
+                            label: 'Ear Tag ID',
                             controller: _tagController,
                           ),
                         ),
@@ -222,7 +222,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Species Category / प्रजाती',
+                      'Species Category',
                       style: AppTextStyles.label(color: AppColors.neutral700).copyWith(fontWeight: FontWeight.w700),
                     ),
                     AppSpacing.vSpace12,
@@ -259,7 +259,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Breed & Gender / जात व लिंग',
+                      'Breed & Gender',
                       style: AppTextStyles.label(color: AppColors.neutral700).copyWith(fontWeight: FontWeight.w700),
                     ),
                     AppSpacing.vSpace12,
@@ -271,7 +271,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
                           ? _selectedBreed
                           : (_availableBreeds.isNotEmpty ? _availableBreeds.first.name : null),
                       decoration: InputDecoration(
-                        labelText: 'Indigenous Breed (महाराष्ट्रातील देशी जात)',
+                        labelText: 'Indigenous Breed',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                       ),
@@ -309,7 +309,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
                               color: _selectedSex == 'female' ? AppColors.primary600 : AppColors.neutral500,
                             ),
                             label: Text(
-                              'Female / मादी',
+                              'Female',
                               style: AppTextStyles.body(
                                 color: _selectedSex == 'female' ? AppColors.primary600 : AppColors.neutral700,
                               ).copyWith(fontWeight: _selectedSex == 'female' ? FontWeight.w700 : FontWeight.normal),
@@ -333,7 +333,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
                               color: _selectedSex == 'male' ? AppColors.primary600 : AppColors.neutral500,
                             ),
                             label: Text(
-                              'Male / नर',
+                              'Male',
                               style: AppTextStyles.body(
                                 color: _selectedSex == 'male' ? AppColors.primary600 : AppColors.neutral700,
                               ).copyWith(fontWeight: _selectedSex == 'male' ? FontWeight.w700 : FontWeight.normal),
@@ -360,7 +360,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Age / वय', style: AppTextStyles.label(color: AppColors.neutral700)),
+                            Text('Age', style: AppTextStyles.label(color: AppColors.neutral700)),
                             Text('$_ageMonths months (${(_ageMonths / 12).toStringAsFixed(1)} yrs)',
                                 style: AppTextStyles.h3(color: AppColors.primary600)),
                           ],
@@ -390,7 +390,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Weight / वजन', style: AppTextStyles.label(color: AppColors.neutral700)),
+                            Text('Weight', style: AppTextStyles.label(color: AppColors.neutral700)),
                             Text('${_weightKg.toStringAsFixed(1)} kg', style: AppTextStyles.h3(color: AppColors.primary600)),
                           ],
                         ),
@@ -419,7 +419,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
 
               // Notes / Markings
               BioHerdInputField(
-                label: 'Identification Markings & Notes (ओळख खूण)',
+                label: 'Identification Markings & Notes',
                 hintText: 'e.g. White star on forehead, twin born, vaccinated',
                 controller: _notesController,
                 maxLines: 2,
@@ -428,7 +428,7 @@ class _RegisterAnimalScreenState extends State<RegisterAnimalScreen> {
 
               // Submit Button
               BioHerdButton(
-                label: 'Register Livestock / पशु नोंदणी पूर्ण करा',
+                label: 'Register Livestock',
                 icon: const Icon(PhosphorIconsRegular.checkCircle, color: Colors.white, size: 20),
                 isLoading: _isLoading,
                 onPressed: _submitRegistration,

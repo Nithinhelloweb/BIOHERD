@@ -81,7 +81,7 @@ class _QRScanDialogState extends State<QRScanDialog> with SingleTickerProviderSt
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Scan Animal Tag', style: AppTextStyles.h3()),
-                        Text('क्यूआर किंवा कानपट्टी स्कॅन करा', style: AppTextStyles.caption(color: AppColors.neutral500)),
+                        Text('Scan QR or enter ear tag ID', style: AppTextStyles.caption(color: AppColors.neutral500)),
                       ],
                     ),
                   ),
@@ -180,7 +180,7 @@ class _QRScanDialogState extends State<QRScanDialog> with SingleTickerProviderSt
               AppSpacing.vSpace12,
 
               BioHerdButton(
-                label: 'Search Tag / शोधा',
+                label: 'Search Tag',
                 icon: const Icon(PhosphorIconsRegular.magnifyingGlass, color: Colors.white, size: 18),
                 onPressed: () => _submitTag(_tagController.text),
               ),

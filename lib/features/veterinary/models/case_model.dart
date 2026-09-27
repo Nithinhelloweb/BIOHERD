@@ -26,22 +26,7 @@ enum CaseStatus {
     }
   }
 
-  String get labelMr {
-    switch (this) {
-      case CaseStatus.submitted:
-        return 'तपासणी प्रतीक्षा';
-      case CaseStatus.assigned:
-        return 'डॉक्टरांकडे सोपवले';
-      case CaseStatus.inReview:
-        return 'तपासणी सुरू';
-      case CaseStatus.prescriptionIssued:
-        return 'औषधोपचार जारी';
-      case CaseStatus.followUp:
-        return 'पुनर्तपासणी';
-      case CaseStatus.closed:
-        return 'निवारण पूर्ण';
-    }
-  }
+  String get labelMr => labelEn;
 
   Color get color {
     switch (this) {
@@ -99,18 +84,7 @@ enum CasePriority {
     }
   }
 
-  String get labelMr {
-    switch (this) {
-      case CasePriority.low:
-        return 'कमी';
-      case CasePriority.medium:
-        return 'मध्यम';
-      case CasePriority.high:
-        return 'गंभीर';
-      case CasePriority.critical:
-        return 'तातडीची आणीबाणी';
-    }
-  }
+  String get labelMr => labelEn;
 
   Color get color {
     switch (this) {
@@ -379,7 +353,7 @@ class PrescriptionModel {
   });
 
   String get instructionEn => instructionsMultilingual['en'] ?? 'Take as directed.';
-  String get instructionMr => instructionsMultilingual['mr'] ?? 'डॉक्टरांच्या सल्ल्यानुसार द्यावे.';
+  String get instructionMr => instructionsMultilingual['mr'] ?? instructionEn;
 
   factory PrescriptionModel.fromJson(Map<String, dynamic> json) {
     return PrescriptionModel(

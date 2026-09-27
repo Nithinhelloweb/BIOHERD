@@ -161,7 +161,7 @@ class _OutbreakAlertBannerState extends State<OutbreakAlertBanner>
                       Icon(PhosphorIconsRegular.shieldWarning, size: 12, color: Colors.white),
                       SizedBox(width: 4),
                       Text(
-                        'Protocols / नियमावली',
+                        'Protocols',
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,

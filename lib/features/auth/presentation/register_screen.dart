@@ -241,10 +241,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             isExpanded: true,
                             initialValue: _selectedRole,
                             items: [
-                              DropdownMenuItem(value: 'farmer', child: Text(l10n?.farmer ?? 'Farmer (शेतकरी)')),
-                              DropdownMenuItem(value: 'veterinarian', child: Text(l10n?.veterinarian ?? 'Veterinarian (पशुवैद्यक)')),
-                              DropdownMenuItem(value: 'dairy_coop', child: Text(l10n?.dairyCooperative ?? 'Dairy Cooperative (दुग्ध संस्था)')),
-                              DropdownMenuItem(value: 'dvo_officer', child: Text(l10n?.dvoOfficer ?? 'DVO Officer (जिल्हा अधिकारी)')),
+                              DropdownMenuItem(value: 'farmer', child: Text(l10n?.farmer ?? 'Farmer')),
+                              DropdownMenuItem(value: 'veterinarian', child: Text(l10n?.veterinarian ?? 'Veterinarian')),
+                              DropdownMenuItem(value: 'dairy_coop', child: Text(l10n?.dairyCooperative ?? 'Dairy Cooperative')),
+                              DropdownMenuItem(value: 'dvo_officer', child: Text(l10n?.dvoOfficer ?? 'DVO Officer')),
                             ],
                             onChanged: (val) => setState(() => _selectedRole = val ?? 'farmer'),
                             decoration: InputDecoration(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../../../core/layout/adaptive_layout.dart';
+import '../../../core/layout/bioherd_shell.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/theme/app_text_styles.dart';
@@ -56,6 +57,7 @@ class _ShowcaseScreenState extends State<ShowcaseScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: const BioHerdHamburgerButton(),
         title: Row(
           children: [
             Container(
@@ -88,8 +90,6 @@ class _ShowcaseScreenState extends State<ShowcaseScreen> {
             icon: const Icon(PhosphorIconsRegular.globe),
             items: const [
               DropdownMenuItem(value: 'en', child: Text('English')),
-              DropdownMenuItem(value: 'mr', child: Text('मराठी (Marathi)')),
-              DropdownMenuItem(value: 'hi', child: Text('हिंदी (Hindi)')),
             ],
             onChanged: (lang) {
               if (lang != null) {
@@ -232,12 +232,10 @@ class _ShowcaseScreenState extends State<ShowcaseScreen> {
                 ),
                 AppSpacing.vSpace4,
                 Text(
-                  isDevanagari
-                      ? 'निरोगी जनावरे. समृद्ध शेतकरी. (महाराष्ट्र शासन - स्मार्ट इंडिया हॅकेथॉन २०२६)'
-                      : 'Healthy Animals. Prosperous Farmers. (Govt. of Maharashtra • SIH26128)',
+                  'Healthy Animals. Prosperous Farmers. (Govt. of Maharashtra • SIH26128)',
                   style: AppTextStyles.body(
                     color: isDark ? AppColors.darkTextSecondary : AppColors.neutral700,
-                    isDevanagari: isDevanagari,
+                    isDevanagari: false,
                   ),
                 ),
               ],
@@ -395,16 +393,16 @@ class _ShowcaseScreenState extends State<ShowcaseScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BioHerdInputField(
-            label: 'Symptom Description (लक्षण वर्णन)',
+            label: 'Symptom Description',
             hintText: 'e.g., High fever, swelling in legs, appetite loss...',
-            helperText: 'Voice input supported in Marathi, Hindi & English (400 char max)',
+            helperText: 'Voice input supported (400 char max)',
             controller: _symptomInputController,
             errorText: _inputError,
             enableVoiceInput: true,
             maxLines: 3,
             onVoiceInputTap: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Voice input recording started... (बोलणे सुरू करा)')),
+                const SnackBar(content: Text('Voice input recording started...')),
               );
             },
             onChanged: (val) {
@@ -495,7 +493,7 @@ class _ShowcaseScreenState extends State<ShowcaseScreen> {
       children: [
         AnimalCard(
           tagId: 'MH-12-PUN-0941',
-          species: 'Gir Cow (गाय)',
+          species: 'Gir Cow',
           breed: 'Indigenous Dairy',
           lastHealthEventDate: '02 Sep 2026',
           activeSeverity: SeverityLevel.high,
@@ -504,7 +502,7 @@ class _ShowcaseScreenState extends State<ShowcaseScreen> {
         AppSpacing.vSpace12,
         AnimalCard(
           tagId: 'MH-14-SAT-3021',
-          species: 'Murrah Buffalo (म्हैस)',
+          species: 'Murrah Buffalo',
           breed: 'High Yield Dairy',
           lastHealthEventDate: '28 Aug 2026',
           activeSeverity: SeverityLevel.low,
@@ -513,7 +511,7 @@ class _ShowcaseScreenState extends State<ShowcaseScreen> {
         AppSpacing.vSpace12,
         AnimalCard(
           tagId: 'MH-19-KOP-7712',
-          species: 'Osmanabadi Goat (शेळी)',
+          species: 'Osmanabadi Goat',
           breed: 'Meat & Milk Dual',
           lastHealthEventDate: '15 Aug 2026',
           onTap: () {},

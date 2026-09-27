@@ -110,10 +110,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get english => 'English';
 
   @override
-  String get marathi => 'मराठी';
+  String get marathi => 'Marathi';
 
   @override
-  String get hindi => 'हिंदी';
+  String get hindi => 'Hindi';
 
   @override
   String get login => 'Login';

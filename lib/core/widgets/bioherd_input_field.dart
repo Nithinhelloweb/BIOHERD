@@ -73,7 +73,7 @@ class BioHerdInputField extends StatelessWidget {
                         color: AppColors.primary600,
                         size: 22,
                       ),
-                      tooltip: 'Voice Input (बोलून सांगा)',
+                      tooltip: 'Voice Input',
                       onPressed: onVoiceInputTap,
                     )
                   : null,

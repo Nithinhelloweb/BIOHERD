@@ -7,6 +7,7 @@ import 'package:bioherd/core/theme/app_text_styles.dart';
 import 'package:bioherd/core/widgets/animal_card.dart';
 import 'package:bioherd/core/widgets/bioherd_card.dart';
 import 'package:bioherd/core/widgets/bioherd_input_field.dart';
+import 'package:bioherd/core/layout/bioherd_shell.dart';
 import 'package:bioherd/core/widgets/skeleton_loader.dart';
 import 'package:bioherd/features/animals/bloc/animal_bloc.dart';
 import 'package:bioherd/features/animals/models/animal_model.dart';
@@ -94,13 +95,14 @@ class _AnimalListScreenState extends State<AnimalListScreen> {
         return Scaffold(
           backgroundColor: AppColors.neutral50,
           appBar: AppBar(
+            leading: const BioHerdHamburgerButton(),
             backgroundColor: Colors.white,
             elevation: 0,
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Livestock Registry', style: AppTextStyles.h3()),
-                Text('पशुधन नोंदणी व आरोग्य व्यवस्थापन', style: AppTextStyles.caption(color: AppColors.neutral500)),
+                Text('Livestock Registration & Health Management', style: AppTextStyles.caption(color: AppColors.neutral500)),
               ],
             ),
             actions: [
@@ -117,7 +119,7 @@ class _AnimalListScreenState extends State<AnimalListScreen> {
             foregroundColor: Colors.white,
             icon: const Icon(PhosphorIconsRegular.plus, size: 20),
             label: Text(
-              'Register Animal / नोंदणी',
+              'Register Animal',
               style: AppTextStyles.label(color: Colors.white).copyWith(fontWeight: FontWeight.w700),
             ),
             onPressed: () {
@@ -184,7 +186,7 @@ class _AnimalListScreenState extends State<AnimalListScreen> {
                     child: Row(
                       children: [
                         _buildFilterChip(
-                          label: 'All / सर्व',
+                          label: 'All',
                           isSelected: state is AnimalLoaded && state.selectedSpecies == null,
                           onTap: () => _onSpeciesSelected(null),
                         ),

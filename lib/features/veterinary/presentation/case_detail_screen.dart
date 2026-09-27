@@ -82,7 +82,7 @@ class _CaseDetailScreenState extends State<CaseDetailScreen> {
                 const SizedBox(width: AppSpacing.space8),
                 Expanded(
                   child: Text(
-                    'Digital Prescription ${prescription.id} issued successfully.\nडिजिटल प्रिस्क्रिप्शन यशस्वीरीत्या नोंदवले.',
+                    'Digital Prescription ${prescription.id} issued successfully.',
                     style: AppTextStyles.bodySm(color: Colors.white),
                   ),
                 ),
@@ -119,7 +119,7 @@ class _CaseDetailScreenState extends State<CaseDetailScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Update Case Status', style: AppTextStyles.h2(color: AppColors.neutral900)),
-              Text('केस स्थिती अद्ययावत करा', style: AppTextStyles.caption(color: AppColors.neutral500)),
+              Text('Select updated triage or clinical status', style: AppTextStyles.caption(color: AppColors.neutral500)),
               const SizedBox(height: AppSpacing.space16),
               ...CaseStatus.values.map((status) {
                 final isCurrent = status == _currentCase.status;
@@ -354,17 +354,17 @@ class _CaseDetailScreenState extends State<CaseDetailScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _buildDetailItem(
-                label: 'Farmer / शेतकरी',
+                label: 'Farmer',
                 value: _currentCase.farmerName ?? 'Farmer',
                 icon: PhosphorIconsRegular.user,
               ),
               _buildDetailItem(
-                label: 'Phone / फोन',
+                label: 'Phone',
                 value: _currentCase.farmerPhone ?? 'N/A',
                 icon: PhosphorIconsRegular.phone,
               ),
               _buildDetailItem(
-                label: 'Location / ठिकाण',
+                label: 'Location',
                 value: '${_currentCase.taluka}, ${_currentCase.district}',
                 icon: PhosphorIconsRegular.mapPin,
               ),
@@ -443,7 +443,7 @@ class _CaseDetailScreenState extends State<CaseDetailScreen> {
           ),
           if (_currentCase.differentialDiagnoses.isNotEmpty) ...[
             const SizedBox(height: AppSpacing.space8),
-            Text('Differential Considerations (संभाव्य इतर आजार):', style: AppTextStyles.caption(color: AppColors.neutral600)),
+            Text('Differential Considerations:', style: AppTextStyles.caption(color: AppColors.neutral600)),
             const SizedBox(height: AppSpacing.space4),
             Wrap(
               spacing: 8,
@@ -467,7 +467,7 @@ class _CaseDetailScreenState extends State<CaseDetailScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Clinical Signs & Observations (लक्षणे)', style: AppTextStyles.bodyMd(fontWeight: FontWeight.bold)),
+          Text('Clinical Signs & Observations', style: AppTextStyles.bodyMd(fontWeight: FontWeight.bold)),
           const SizedBox(height: AppSpacing.space12),
           Wrap(
             spacing: 8,
@@ -500,17 +500,17 @@ class _CaseDetailScreenState extends State<CaseDetailScreen> {
               scrollDirection: Axis.horizontal,
               children: [
                 _buildPhotoThumbnail(
-                  title: 'Oral Mucosa / दात व जीभ',
+                  title: 'Oral Mucosa',
                   icon: PhosphorIconsRegular.camera,
                 ),
                 const SizedBox(width: AppSpacing.space12),
                 _buildPhotoThumbnail(
-                  title: 'Interdigital Hoof / खुर',
+                  title: 'Interdigital Hoof',
                   icon: PhosphorIconsRegular.camera,
                 ),
                 const SizedBox(width: AppSpacing.space12),
                 _buildPhotoThumbnail(
-                  title: 'Thermal Scan / तापमान',
+                  title: 'Thermal Scan',
                   icon: PhosphorIconsRegular.thermometerHot,
                 ),
               ],
@@ -557,7 +557,7 @@ class _CaseDetailScreenState extends State<CaseDetailScreen> {
             Text('Digital Prescriptions (${_currentCase.prescriptions.length})', style: AppTextStyles.h3()),
             TextButton.icon(
               icon: const Icon(PhosphorIconsBold.plusCircle, size: 16),
-              label: const Text('Add Drug / औषध जोडा'),
+              label: const Text('Add Drug'),
               style: TextButton.styleFrom(foregroundColor: AppColors.forestGreen),
               onPressed: _openPrescriptionPad,
             ),
@@ -578,7 +578,6 @@ class _CaseDetailScreenState extends State<CaseDetailScreen> {
                   const Icon(PhosphorIconsRegular.pill, size: 36, color: AppColors.neutral400),
                   const SizedBox(height: 8),
                   Text('No prescriptions issued yet', style: AppTextStyles.bodyMd(color: AppColors.neutral600)),
-                  Text('कोणतीही औषधे अद्याप दिलेली नाहीत', style: AppTextStyles.caption(color: AppColors.neutral400)),
                   const SizedBox(height: 12),
                   BioHerdButton(
                     text: 'Open Prescription Pad',

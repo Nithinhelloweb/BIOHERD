@@ -14,7 +14,7 @@ void main() {
     id: 'test-animal-101',
     farmId: 'farm-001',
     species: AnimalSpeciesEnum.cattle,
-    breed: 'Gir / गीर',
+    breed: 'Gir',
     sex: 'Female',
     tagId: 'MH-PUN-019',
     createdAt: DateTime.now(),
@@ -129,14 +129,14 @@ void main() {
       await bloc.stream.firstWhere((s) => s is SymptomWizardState);
 
       bloc.add(const AddWizardPhotoEvent('nodule1.jpg'));
-      bloc.add(const SetWizardDescriptionEvent('अंगावर गाठी आहेत'));
+      bloc.add(const SetWizardDescriptionEvent('Nodular lumps on skin'));
       bloc.add(const SetWizardVoiceNoteEvent('audio_voice_test.wav'));
 
       await expectLater(
         bloc.stream,
         emitsThrough(predicate<SymptomWizardState>((state) {
           return state.photos.contains('nodule1.jpg') &&
-              state.vernacularDescription == 'अंगावर गाठी आहेत' &&
+              state.vernacularDescription == 'Nodular lumps on skin' &&
               state.voiceNoteUrl == 'audio_voice_test.wav';
         })),
       );
@@ -161,7 +161,7 @@ void main() {
         systemId: 'vitality',
         symptomId: 'high_fever',
       ));
-      bloc.add(const SetWizardDescriptionEvent('अंगावर भरपूर कडक गाठी व ताप आहे'));
+      bloc.add(const SetWizardDescriptionEvent('Multiple hard nodular lumps on skin with fever'));
       bloc.add(const AddWizardPhotoEvent('nodular_skin_lesions.jpg'));
 
       // Advance to step 4

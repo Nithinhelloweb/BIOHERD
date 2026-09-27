@@ -68,7 +68,7 @@ class AnimalPassportDialog extends StatelessWidget {
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            'Livestock Health Passport / पशुधन पास',
+                            'Livestock Health Passport',
                             style: AppTextStyles.h3(color: Colors.white).copyWith(fontSize: 16),
                           ),
                         ],
@@ -152,30 +152,30 @@ class AnimalPassportDialog extends StatelessWidget {
               AppSpacing.vSpace16,
 
               // Identity & Medical Grid
-              _buildSectionTitle('Animal Particulars / पशु तपशील'),
+              _buildSectionTitle('Animal Particulars'),
               AppSpacing.vSpace8,
-              _buildInfoRow('Species / प्रजाती', passport.species),
-              _buildInfoRow('Indigenous Breed / देशी जात', passport.breed),
-              _buildInfoRow('Sex / लिंग', passport.sex.toUpperCase()),
-              _buildInfoRow('Live Weight / वजन', '${passport.weightKg} kg'),
+              _buildInfoRow('Species', passport.species),
+              _buildInfoRow('Indigenous Breed', passport.breed),
+              _buildInfoRow('Sex', passport.sex.toUpperCase()),
+              _buildInfoRow('Live Weight', '${passport.weightKg} kg'),
               if (passport.ageMonths != null)
-                _buildInfoRow('Age / वय', '${passport.ageMonths} months'),
+                _buildInfoRow('Age', '${passport.ageMonths} months'),
 
               AppSpacing.vSpace12,
-              _buildSectionTitle('Ownership & Jurisdiction / मालक व पत्ता'),
+              _buildSectionTitle('Ownership & Jurisdiction'),
               AppSpacing.vSpace8,
-              _buildInfoRow('Owner Name / पशुपालक', passport.ownerName),
-              _buildInfoRow('Contact / संपर्क', passport.ownerPhone),
-              _buildInfoRow('Farm Name / गोठा', passport.farmName),
-              _buildInfoRow('District / जिल्हा', passport.districtName),
+              _buildInfoRow('Owner Name', passport.ownerName),
+              _buildInfoRow('Contact', passport.ownerPhone),
+              _buildInfoRow('Farm Name', passport.farmName),
+              _buildInfoRow('District', passport.districtName),
 
               AppSpacing.vSpace12,
-              _buildSectionTitle('Health & Immunity / लसीकरण स्थिती'),
+              _buildSectionTitle('Health & Immunity'),
               AppSpacing.vSpace8,
-              _buildInfoRow('Vaccinations / लसीकरण', '${passport.vaccinationsCount} doses recorded'),
-              _buildInfoRow('Clinical Events / आरोग्य नोंदी', '${passport.healthEventsCount} historical events'),
+              _buildInfoRow('Vaccinations', '${passport.vaccinationsCount} doses recorded'),
+              _buildInfoRow('Clinical Events', '${passport.healthEventsCount} historical events'),
               _buildInfoRow(
-                'Registry Status / स्थिती',
+                'Registry Status',
                 passport.isActive ? 'ACTIVE & VERIFIED' : 'INACTIVE',
                 isSuccess: passport.isActive,
               ),
@@ -187,7 +187,7 @@ class AnimalPassportDialog extends StatelessWidget {
                 children: [
                   Expanded(
                     child: BioHerdButton(
-                      label: 'Print / शेअर करा',
+                      label: 'Print',
                       icon: const Icon(PhosphorIconsRegular.printer, color: AppColors.primary600, size: 18),
                       variant: BioHerdButtonVariant.secondary,
                       onPressed: () {
@@ -203,7 +203,7 @@ class AnimalPassportDialog extends StatelessWidget {
                   AppSpacing.hSpace12,
                   Expanded(
                     child: BioHerdButton(
-                      label: 'Close / बंद करा',
+                      label: 'Close',
                       onPressed: () => Navigator.of(context).pop(),
                     ),
                   ),

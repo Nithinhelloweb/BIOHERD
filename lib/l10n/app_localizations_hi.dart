@@ -9,168 +9,166 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
-  String get appName => 'बायोहर्ड';
+  String get appName => 'BIOHERD';
 
   @override
-  String get tagline => 'स्वस्थ पशु. समृद्ध किसान.';
+  String get tagline => 'Healthy Animals. Prosperous Farmers.';
 
   @override
-  String get namaste => 'नमस्ते';
+  String get namaste => 'Namaste';
 
   @override
   String welcomeMessage(String name) {
-    return 'नमस्ते, $name';
+    return 'Namaste, $name';
   }
 
   @override
-  String get farmSummary => 'डेयरी सारांश';
+  String get farmSummary => 'Farm Summary';
 
   @override
-  String get myAnimals => 'मेरे पशु';
+  String get myAnimals => 'My Animals';
 
   @override
-  String get scanQr => 'क्यूआर स्कैन करें';
+  String get scanQr => 'Scan QR';
 
   @override
-  String get reportSymptom => 'लक्षण दर्ज करें';
+  String get reportSymptom => 'Report Symptom';
 
   @override
-  String get vaccinations => 'टीकाकरण';
+  String get vaccinations => 'Vaccinations';
 
   @override
-  String get upcomingVaccinations => 'आगामी टीकाकरण';
+  String get upcomingVaccinations => 'Upcoming Vaccinations';
 
   @override
-  String get recentActivity => 'हाल की गतिविधि';
+  String get recentActivity => 'Recent Activity';
 
   @override
-  String get activeAlerts => 'सक्रिय अलर्ट';
+  String get activeAlerts => 'Active Alerts';
 
   @override
-  String get noActiveAlerts =>
-      'आपके क्षेत्र में कोई सक्रिय बीमारी अलर्ट नहीं है।';
+  String get noActiveAlerts => 'No active disease alerts in your area.';
 
   @override
-  String get viewAll => 'सभी देखें';
+  String get viewAll => 'See all';
 
   @override
-  String get severityLow => 'कम';
+  String get severityLow => 'Low';
 
   @override
-  String get severityMedium => 'मध्यम';
+  String get severityMedium => 'Medium';
 
   @override
-  String get severityHigh => 'गंभीर';
+  String get severityHigh => 'High';
 
   @override
-  String get severityCritical => 'अति गंभीर';
+  String get severityCritical => 'Critical';
 
   @override
-  String get offlineBanner =>
-      'आप ऑफ़लाइन हैं। कनेक्शन मिलने पर डेटा सिंक हो जाएगा।';
+  String get offlineBanner => 'You\'re offline. Data will sync when connected.';
 
   @override
   String syncingBanner(int count) {
-    return 'सिंक हो रहा है... $count आइटम बाकी';
+    return 'Syncing... $count items pending';
   }
 
   @override
-  String get aiAssisted => 'एआई-सहायक निदान';
+  String get aiAssisted => 'AI-Assisted Diagnostic';
 
   @override
   String confidenceScore(int percent) {
-    return 'सटीकता: $percent%';
+    return 'Confidence: $percent%';
   }
 
   @override
-  String get whatToDoNext => 'आगे क्या करें';
+  String get whatToDoNext => 'Recommended Next Steps';
 
   @override
-  String get submit => 'जमा करें';
+  String get submit => 'Submit';
 
   @override
-  String get cancel => 'रद्द करें';
+  String get cancel => 'Cancel';
 
   @override
-  String get tryAgain => 'पुनः प्रयास करें';
+  String get tryAgain => 'Try Again';
 
   @override
-  String get loading => 'लोड हो रहा है...';
+  String get loading => 'Loading...';
 
   @override
   String get emptyStateNoAnimals =>
-      'अभी तक कोई पशु पंजीकृत नहीं है। स्वास्थ्य ट्रैक करने के लिए अपना पहला पशु जोड़ें।';
+      'No animals registered yet. Add your first animal to track its health.';
 
   @override
   String get errorStateGeneral =>
-      'कुछ गलत हो गया। कृपया अपना कनेक्शन जांचें और पुनः प्रयास करें।';
+      'Something went wrong. Please check your connection and try again.';
 
   @override
-  String get language => 'भाषा';
+  String get language => 'Language';
 
   @override
   String get english => 'English';
 
   @override
-  String get marathi => 'मराठी';
+  String get marathi => 'Marathi';
 
   @override
-  String get hindi => 'हिंदी';
+  String get hindi => 'Hindi';
 
   @override
-  String get login => 'लॉगिन';
+  String get login => 'Login';
 
   @override
-  String get register => 'पंजीकरण करें';
+  String get register => 'Register';
 
   @override
-  String get phoneNumber => 'फ़ोन नंबर';
+  String get phoneNumber => 'Phone Number';
 
   @override
-  String get password => 'पासवर्ड';
+  String get password => 'Password';
 
   @override
-  String get fullName => 'पूरा नाम';
+  String get fullName => 'Full Name';
 
   @override
-  String get role => 'भूमिका';
+  String get role => 'Role';
 
   @override
-  String get district => 'ज़िला';
+  String get district => 'District';
 
   @override
-  String get farmer => 'किसान';
+  String get farmer => 'Farmer';
 
   @override
-  String get veterinarian => 'पशुचिकित्सक';
+  String get veterinarian => 'Veterinarian';
 
   @override
-  String get dairyCooperative => 'डेयरी सहकारी';
+  String get dairyCooperative => 'Dairy Cooperative';
 
   @override
-  String get dvoOfficer => 'डीवीओ अधिकारी';
+  String get dvoOfficer => 'DVO Officer';
 
   @override
-  String get twoFactorAuth => 'दो-चरणीय प्रमाणीकरण';
+  String get twoFactorAuth => 'Two-Factor Authentication';
 
   @override
-  String get enterOtp => '६ अंकों का प्रमाणक कोड दर्ज करें';
+  String get enterOtp => 'Enter 6-digit Authenticator Code';
 
   @override
-  String get verify => 'सत्यापित करें';
+  String get verify => 'Verify';
 
   @override
-  String get logout => 'लॉगआउट';
+  String get logout => 'Logout';
 
   @override
-  String get dontHaveAccount => 'खाता नहीं है? पंजीकरण करें';
+  String get dontHaveAccount => 'Don\'t have an account? Register';
 
   @override
-  String get alreadyHaveAccount => 'पहले से खाता है? लॉगिन करें';
+  String get alreadyHaveAccount => 'Already have an account? Login';
 
   @override
-  String get invalidPhone => 'कृपया वैध १० अंकों का फ़ोन नंबर दर्ज करें';
+  String get invalidPhone => 'Please enter a valid 10-digit phone number';
 
   @override
-  String get passwordRequired => 'पासवर्ड कम से कम ८ अक्षरों का होना चाहिए';
+  String get passwordRequired => 'Password must be at least 8 characters';
 }

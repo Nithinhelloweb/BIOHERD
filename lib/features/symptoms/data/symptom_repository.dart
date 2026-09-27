@@ -61,76 +61,76 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
       const BodySystemCategory(
         id: 'vitality',
         nameEn: 'Vitality & Fever',
-        nameMr: 'जीवनशक्ती व ताप',
+          nameMr: 'Vitality & Fever',
         iconKey: 'thermometer',
         symptoms: [
-          SymptomItem(id: 'high_fever', nameEn: 'High Fever (104-106°F)', nameMr: 'तीव्र ताप (१०४-१०६°F)'),
-          SymptomItem(id: 'loss_of_appetite', nameEn: 'Loss of Appetite / Not Feeding', nameMr: 'चारा न खाणे / भूक मंदावणे'),
-          SymptomItem(id: 'severe_depression', nameEn: 'Severe Depression & Lethargy', nameMr: 'सुस्तपणा व डोके खाली घालणे'),
-          SymptomItem(id: 'shivering', nameEn: 'Shivering / Chills', nameMr: 'थंडी भरणे / थरथरणे'),
+          SymptomItem(id: 'high_fever', nameEn: 'High Fever (104-106°F)', nameMr: 'High Fever (104-106°F)'),
+          SymptomItem(id: 'loss_of_appetite', nameEn: 'Loss of Appetite / Not Feeding', nameMr: 'Loss of Appetite / Not Feeding'),
+          SymptomItem(id: 'severe_depression', nameEn: 'Severe Depression & Lethargy', nameMr: 'Severe Depression & Lethargy'),
+          SymptomItem(id: 'shivering', nameEn: 'Shivering / Chills', nameMr: 'Shivering / Chills'),
         ],
       ),
       const BodySystemCategory(
         id: 'skin_coat',
         nameEn: 'Skin, Coat & Lesions',
-        nameMr: 'त्वचा, केस व गाठी',
+          nameMr: 'Skin, Coat & Lesions',
         iconKey: 'shield',
         symptoms: [
-          SymptomItem(id: 'nodular_skin_lesions', nameEn: 'Nodular Lumps / Skin Knots', nameMr: 'अंगावर गोल मोठ्या गाठी'),
-          SymptomItem(id: 'hard_nodules_all_over_body', nameEn: 'Hard Nodules (Neck/Back)', nameMr: 'मान व पाठीवर कडक गाठी'),
-          SymptomItem(id: 'skin_ulcers', nameEn: 'Ruptured / Bleeding Ulcers', nameMr: 'फुटलेल्या जखमा व खपल्या'),
-          SymptomItem(id: 'edema_of_limbs_dewlap', nameEn: 'Swelling on Legs / Dewlap', nameMr: 'पायाला व पोळीला सूज'),
-          SymptomItem(id: 'crepitant_swelling_thigh_shoulder', nameEn: 'Crackling Muscle Swelling (Black Quarter)', nameMr: 'मांडी/खांद्यावर चरचर वाजणारी सूज'),
-          SymptomItem(id: 'heavy_tick_infestation', nameEn: 'Heavy Tick / Parasite Load', nameMr: 'अंगावर गोचीडांचा प्रादुर्भाव'),
+          SymptomItem(id: 'nodular_skin_lesions', nameEn: 'Nodular Lumps / Skin Knots', nameMr: 'Nodular Lumps / Skin Knots'),
+          SymptomItem(id: 'hard_nodules_all_over_body', nameEn: 'Hard Nodules (Neck/Back)', nameMr: 'Hard Nodules (Neck/Back)'),
+          SymptomItem(id: 'skin_ulcers', nameEn: 'Ruptured / Bleeding Ulcers', nameMr: 'Ruptured / Bleeding Ulcers'),
+          SymptomItem(id: 'edema_of_limbs_dewlap', nameEn: 'Swelling on Legs / Dewlap', nameMr: 'Swelling on Legs / Dewlap'),
+          SymptomItem(id: 'crepitant_swelling_thigh_shoulder', nameEn: 'Crackling Muscle Swelling (Black Quarter)', nameMr: 'Crackling Muscle Swelling (Black Quarter)'),
+          SymptomItem(id: 'heavy_tick_infestation', nameEn: 'Heavy Tick / Parasite Load', nameMr: 'Heavy Tick / Parasite Load'),
         ],
       ),
       const BodySystemCategory(
         id: 'oral_nasal',
         nameEn: 'Mouth, Saliva & Nasal',
-        nameMr: 'तोंड, लाळ व नाक',
+          nameMr: 'Mouth, Saliva & Nasal',
         iconKey: 'drop',
         symptoms: [
-          SymptomItem(id: 'frothy_salivation', nameEn: 'Frothy Ropey Salivation', nameMr: 'तोंडातून फेस व सतत लाळ गळणे'),
-          SymptomItem(id: 'mouth_tongue_blisters', nameEn: 'Blisters / Ulcers on Tongue & Gums', nameMr: 'जीभ व हिरड्यांवर फोड/अल्सर'),
-          SymptomItem(id: 'smacking_of_lips', nameEn: 'Smacking of Lips / Teeth Grinding', nameMr: 'ओठ चोळणे / दातावर दात वाजवणे'),
-          SymptomItem(id: 'purulent_nasal_discharge', nameEn: 'Thick Nasal Discharge', nameMr: 'नाकातून जाड शेंबूड गळणे'),
-          SymptomItem(id: 'submandibular_throat_swelling', nameEn: 'Throat & Jaw Swelling (HS)', nameMr: 'घशाखाली व जबड्याखाली मोठी सूज'),
+          SymptomItem(id: 'frothy_salivation', nameEn: 'Frothy Ropey Salivation', nameMr: 'Frothy Ropey Salivation'),
+          SymptomItem(id: 'mouth_tongue_blisters', nameEn: 'Blisters / Ulcers on Tongue & Gums', nameMr: 'Blisters / Ulcers on Tongue & Gums'),
+          SymptomItem(id: 'smacking_of_lips', nameEn: 'Smacking of Lips / Teeth Grinding', nameMr: 'Smacking of Lips / Teeth Grinding'),
+          SymptomItem(id: 'purulent_nasal_discharge', nameEn: 'Thick Nasal Discharge', nameMr: 'Thick Nasal Discharge'),
+          SymptomItem(id: 'submandibular_throat_swelling', nameEn: 'Throat & Jaw Swelling (HS)', nameMr: 'Throat & Jaw Swelling (HS)'),
         ],
       ),
       const BodySystemCategory(
         id: 'locomotion',
         nameEn: 'Locomotion & Hooves',
-        nameMr: 'पाय, खुर व हालचाल',
+          nameMr: 'Locomotion & Hooves',
         iconKey: 'pawPrint',
         symptoms: [
-          SymptomItem(id: 'severe_lameness', nameEn: 'Severe Lameness / Limping', nameMr: 'एका किंवा दोन्ही पायाने लंगडणे'),
-          SymptomItem(id: 'interdigital_hoof_lesions', nameEn: 'Wounds / Maggots in Hoof Cleft', nameMr: 'खुरांमधील भेगा व जखमा'),
-          SymptomItem(id: 'inability_to_stand', nameEn: 'Inability to Stand Up', nameMr: 'उठण्यास असमर्थ / खाली बसून राहणे'),
-          SymptomItem(id: 'stiffness_in_joints', nameEn: 'Swollen Stiff Knee Joints', nameMr: 'गुडघ्याला सूज व पाय ताठ होणे'),
+          SymptomItem(id: 'severe_lameness', nameEn: 'Severe Lameness / Limping', nameMr: 'Severe Lameness / Limping'),
+          SymptomItem(id: 'interdigital_hoof_lesions', nameEn: 'Wounds / Maggots in Hoof Cleft', nameMr: 'Wounds / Maggots in Hoof Cleft'),
+          SymptomItem(id: 'inability_to_stand', nameEn: 'Inability to Stand Up', nameMr: 'Inability to Stand Up'),
+          SymptomItem(id: 'stiffness_in_joints', nameEn: 'Swollen Stiff Knee Joints', nameMr: 'Swollen Stiff Knee Joints'),
         ],
       ),
       const BodySystemCategory(
         id: 'udder_milk',
         nameEn: 'Udder, Teats & Milk',
-        nameMr: 'कास, सड व दूध',
+          nameMr: 'Udder, Teats & Milk',
         iconKey: 'cow',
         symptoms: [
-          SymptomItem(id: 'swollen_hot_painful_udder', nameEn: 'Hot, Swollen & Painful Udder', nameMr: 'कास सुजणे, कडक व गरम लागणे'),
-          SymptomItem(id: 'clots_flakes_watery_milk', nameEn: 'Curds / Flakes / Watery Milk', nameMr: 'दुधात गाठी, चोथे किंवा पाणीदार दूध'),
-          SymptomItem(id: 'blood_in_milk', nameEn: 'Blood / Reddishtinged Milk', nameMr: 'दुधातून रक्त येणे'),
-          SymptomItem(id: 'drastic_milk_reduction', nameEn: 'Sudden Drastic Drop in Milk Yield', nameMr: 'दूध उत्पादनात अचानक तीव्र घट'),
-          SymptomItem(id: 'kicking_during_milking', nameEn: 'Refuses Touching / Kicking at Milking', nameMr: 'दूध काढू न देणे / लाथा मारणे'),
+          SymptomItem(id: 'swollen_hot_painful_udder', nameEn: 'Hot, Swollen & Painful Udder', nameMr: 'Hot, Swollen & Painful Udder'),
+          SymptomItem(id: 'clots_flakes_watery_milk', nameEn: 'Curds / Flakes / Watery Milk', nameMr: 'Curds / Flakes / Watery Milk'),
+          SymptomItem(id: 'blood_in_milk', nameEn: 'Blood / Reddishtinged Milk', nameMr: 'Blood / Reddishtinged Milk'),
+          SymptomItem(id: 'drastic_milk_reduction', nameEn: 'Sudden Drastic Drop in Milk Yield', nameMr: 'Sudden Drastic Drop in Milk Yield'),
+          SymptomItem(id: 'kicking_during_milking', nameEn: 'Refuses Touching / Kicking at Milking', nameMr: 'Refuses Touching / Kicking at Milking'),
         ],
       ),
       const BodySystemCategory(
         id: 'digestive_excretory',
         nameEn: 'Digestion & Excretion',
-        nameMr: 'पचन व मलमूत्र',
+          nameMr: 'Digestion & Excretion',
         iconKey: 'activity',
         symptoms: [
-          SymptomItem(id: 'dark_red_coffee_colored_urine', nameEn: 'Dark Red / Coffee Colored Urine', nameMr: 'लाल किंवा कॉफी रंगाची लघवी'),
-          SymptomItem(id: 'foul_smelling_watery_diarrhea', nameEn: 'Foul-smelling Watery Diarrhea', nameMr: 'घाण वासाची काळी किंवा पातळ हगवण'),
-          SymptomItem(id: 'bloat_tympany', nameEn: 'Abdominal Bloat / Gas Accumulation', nameMr: 'पोट फुगणे / पोटात गॅस होणे'),
+          SymptomItem(id: 'dark_red_coffee_colored_urine', nameEn: 'Dark Red / Coffee Colored Urine', nameMr: 'Dark Red / Coffee Colored Urine'),
+          SymptomItem(id: 'foul_smelling_watery_diarrhea', nameEn: 'Foul-smelling Watery Diarrhea', nameMr: 'Foul-smelling Watery Diarrhea'),
+          SymptomItem(id: 'bloat_tympany', nameEn: 'Abdominal Bloat / Gas Accumulation', nameMr: 'Abdominal Bloat / Gas Accumulation'),
         ],
       ),
     ];
@@ -197,7 +197,7 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
       id: 'rep-${DateTime.now().millisecondsSinceEpoch}',
       animalId: animalId,
       animalTagId: animalTagId ?? 'MH-HERD-${animalId.substring(0, 4).toUpperCase()}',
-      species: species ?? 'Cattle / गाय',
+      species: species ?? 'Cattle',
       breed: breed ?? 'Gir',
       reportedBy: 'Vitthal Shinde (Farmer)',
       symptomsJson: {
@@ -267,7 +267,7 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
         id: 'rep-seed-01',
         animalId: 'anim-01',
         animalTagId: 'MH-PUN-GIR-104',
-        species: 'Cattle / गाय',
+        species: 'Cattle',
         breed: 'Gir',
         reportedBy: 'Vitthal Shinde (Farmer)',
         symptomsJson: {
@@ -275,7 +275,7 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
             'skin_coat': ['nodular_skin_lesions', 'hard_nodules_all_over_body'],
             'vitality': ['high_fever'],
           },
-          'vernacular_description': 'अंगावर मोठ्या गाठी आल्या आहेत व ताप आहे.',
+          'vernacular_description': 'Fever, appetite loss and clinical lesions observed.',
         },
         severity: SeverityLevel.critical,
         status: 'under_observation',
@@ -286,7 +286,7 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
           primaryDiagnosis: DiseasePredictionModel(
             diseaseId: 'dis-lsd',
             nameEn: 'Lumpy Skin Disease (LSD)',
-            nameMr: 'गाठींचा त्वचा रोग (लम्पी स्कीन डिसीज)',
+          nameMr: 'Lumpy Skin Disease (LSD)',
             confidence: 91.4,
             severity: SeverityLevel.critical,
             causativeAgent: 'Capripoxvirus',
@@ -297,7 +297,7 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
             DiseasePredictionModel(
               diseaseId: 'dis-fmd',
               nameEn: 'Foot and Mouth Disease (FMD)',
-              nameMr: 'लाळ्या खुरकूत',
+          nameMr: 'Foot and Mouth Disease (FMD)',
               confidence: 5.8,
               severity: SeverityLevel.critical,
               causativeAgent: 'Aphthovirus',
@@ -310,12 +310,12 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
           shouldEscalateCase: true,
           firstAid: FirstAidModel(
             en: {
-              'immediate_action': 'Strictly isolate animal in fly-proof shelter.',
-              'sanitation': 'Disinfect stall with 1% formalin solution.',
+              'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+              'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
             },
             mr: {
-              'immediate_action': 'बाधित जनावराला तात्काळ वेगळे डास-माशांपासून सुरक्षित गोठ्यात ठेवा.',
-              'sanitation': 'गोठ्याची जागा चुना व जंतुनाशकाने स्वच्छ करा.',
+              'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+              'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
             },
             isolationRequired: true,
             zoonoticRisk: false,
@@ -328,14 +328,14 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
         id: 'rep-seed-02',
         animalId: 'anim-02',
         animalTagId: 'MH-SOL-KHL-201',
-        species: 'Cattle / गाय',
+        species: 'Cattle',
         breed: 'Khillari',
         reportedBy: 'Sanjay Patil (Farmer)',
         symptomsJson: {
           'checklist': {
             'udder_milk': ['swollen_hot_painful_udder', 'clots_flakes_watery_milk'],
           },
-          'vernacular_description': 'कास सुजली आहे आणि दुधात गाठी आहेत.',
+          'vernacular_description': 'Fever, appetite loss and clinical lesions observed.',
         },
         severity: SeverityLevel.medium,
         status: 'in_treatment',
@@ -346,7 +346,7 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
           primaryDiagnosis: DiseasePredictionModel(
             diseaseId: 'dis-mastitis',
             nameEn: 'Mastitis (Clinical)',
-            nameMr: 'स्तनदाह / मस्टायटिस (गाण)',
+          nameMr: 'Mastitis (Clinical)',
             confidence: 86.2,
             severity: SeverityLevel.medium,
             causativeAgent: 'Staphylococcus aureus',
@@ -359,12 +359,12 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
           shouldEscalateCase: true,
           firstAid: FirstAidModel(
             en: {
-              'immediate_action': 'Strip affected quarter frequently every 2 hours.',
-              'sanitation': 'Dip teats in povidone iodine before and after milking.',
+              'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+              'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
             },
             mr: {
-              'immediate_action': 'बाधित सडातील खराब दूध दर दोन तासांनी काढून टाका.',
-              'sanitation': 'दूध काढण्यापूर्वी व नंतर सड आयोडीन द्रावणात बुडवा.',
+              'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+              'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
             },
             isolationRequired: false,
             zoonoticRisk: true,
@@ -392,16 +392,13 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
     // Check for Mastitis (clinical udder & milk pathology)
     if (allSymptoms.contains('swollen_hot_painful_udder') ||
         allSymptoms.contains('clots_flakes_watery_milk') ||
-        textLower.contains('स्तनदाह') ||
-        textLower.contains('कास') ||
-        textLower.contains('मस्टायटिस') ||
-        textLower.contains('दुधात गाठी')) {
+        textLower.contains('mastitis') || textLower.contains('udder')) {
       return AIDiagnosisResult(
         modelVersion: 'bioherd-offline-heuristic-v1.0',
         primaryDiagnosis: const DiseasePredictionModel(
           diseaseId: 'dis-mastitis',
           nameEn: 'Mastitis (Clinical)',
-          nameMr: 'स्तनदाह / मस्टायटिस (गाण)',
+          nameMr: 'Mastitis (Clinical)',
           confidence: 87.0,
           severity: SeverityLevel.medium,
           causativeAgent: 'Staphylococcus / Streptococcus',
@@ -414,12 +411,12 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
         shouldEscalateCase: true,
         firstAid: const FirstAidModel(
           en: {
-            'immediate_action': 'Milk out affected quarter every 2 hours. Do not consume milk.',
-            'sanitation': 'Dip teats in antiseptic iodine dip before and after milking.',
+            'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+            'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
           },
           mr: {
-            'immediate_action': 'बाधित सडातील खराब दूध दर दोन तासांनी काढून टाका. दूध पिऊ नका.',
-            'sanitation': 'दूध काढण्यापूर्वी व नंतर सड आयोडीन द्रावणात बुडवा.',
+            'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+            'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
           },
           isolationRequired: false,
           zoonoticRisk: true,
@@ -431,15 +428,13 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
     // Check for Lumpy Skin Disease
     if (allSymptoms.contains('nodular_skin_lesions') ||
         allSymptoms.contains('hard_nodules_all_over_body') ||
-        textLower.contains('लम्पी') ||
-        textLower.contains('लंपी') ||
-        (textLower.contains('गाठी') && !textLower.contains('दुधात') && !textLower.contains('कास'))) {
+        textLower.contains('lumpy') || textLower.contains('nodule')) {
       return AIDiagnosisResult(
         modelVersion: 'bioherd-offline-heuristic-v1.0',
         primaryDiagnosis: const DiseasePredictionModel(
           diseaseId: 'dis-lsd',
           nameEn: 'Lumpy Skin Disease (LSD)',
-          nameMr: 'गाठींचा त्वचा रोग (लम्पी स्कीन डिसीज)',
+          nameMr: 'Lumpy Skin Disease (LSD)',
           confidence: 88.5,
           severity: SeverityLevel.critical,
           causativeAgent: 'Capripoxvirus',
@@ -450,7 +445,7 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
           DiseasePredictionModel(
             diseaseId: 'dis-fmd',
             nameEn: 'Foot and Mouth Disease (FMD)',
-            nameMr: 'लाळ्या खुरकूत',
+          nameMr: 'Foot and Mouth Disease (FMD)',
             confidence: 8.5,
             severity: SeverityLevel.critical,
             causativeAgent: 'Aphthovirus',
@@ -463,12 +458,12 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
         shouldEscalateCase: true,
         firstAid: const FirstAidModel(
           en: {
-            'immediate_action': 'Strictly isolate animal in a fly-proof shelter.',
-            'sanitation': 'Disinfect shed with 1% formalin or lime wash.',
+            'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+            'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
           },
           mr: {
-            'immediate_action': 'बाधित जनावराला तात्काळ वेगळे डास-माशांपासून सुरक्षित गोठ्यात ठेवा.',
-            'sanitation': 'गोठ्याची जागा चुना व जंतुनाशकाने स्वच्छ करा.',
+            'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+            'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
           },
           isolationRequired: true,
           zoonoticRisk: false,
@@ -481,15 +476,13 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
     if (allSymptoms.contains('frothy_salivation') ||
         allSymptoms.contains('mouth_tongue_blisters') ||
         allSymptoms.contains('interdigital_hoof_lesions') ||
-        textLower.contains('लाळ्या') ||
-        textLower.contains('खुरकूत') ||
-        textLower.contains('लाळ')) {
+        textLower.contains('fmd') || textLower.contains('blister') || textLower.contains('saliva')) {
       return AIDiagnosisResult(
         modelVersion: 'bioherd-offline-heuristic-v1.0',
         primaryDiagnosis: const DiseasePredictionModel(
           diseaseId: 'dis-fmd',
           nameEn: 'Foot and Mouth Disease (FMD)',
-          nameMr: 'लाळ्या खुरकूत (एफ.एम.डी)',
+          nameMr: 'Foot and Mouth Disease (FMD)',
           confidence: 89.2,
           severity: SeverityLevel.critical,
           causativeAgent: 'Aphthovirus',
@@ -502,12 +495,12 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
         shouldEscalateCase: true,
         firstAid: const FirstAidModel(
           en: {
-            'immediate_action': 'Quarantine animal immediately. Do not move or sell milk.',
-            'sanitation': 'Wash mouth with mild potassium permanganate and feet with 2% copper sulphate.',
+            'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+            'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
           },
           mr: {
-            'immediate_action': 'बाधित जनावराला तात्काळ वेगळे बांधा. बाजारात नेऊ नका.',
-            'sanitation': 'तोंड पोटॅशियम परमँगनेट पाण्याने व खुर मोरचूद द्रावणाने धुवा.',
+            'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+            'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
           },
           isolationRequired: true,
           zoonoticRisk: false,
@@ -522,7 +515,7 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
       primaryDiagnosis: const DiseasePredictionModel(
         diseaseId: 'dis-general',
         nameEn: 'Undifferentiated Pyrexia / Under Observation',
-        nameMr: 'ताप व अशक्तपणा (निरीक्षणाखाली)',
+          nameMr: 'Undifferentiated Pyrexia / Under Observation',
         confidence: 65.0,
         severity: SeverityLevel.low,
         causativeAgent: 'Non-specific viral or bacterial challenge',
@@ -535,12 +528,12 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
       shouldEscalateCase: false,
       firstAid: const FirstAidModel(
         en: {
-          'immediate_action': 'Provide shade, fresh drinking water with jaggery and green fodder.',
-          'sanitation': 'Keep shed floor dry and well-ventilated.',
+          'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+          'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
         },
         mr: {
-          'immediate_action': 'जनावराला थंड सावलीत ठेवा, गुळ-पाणी आणि सकस हिरवा चारा द्या.',
-          'sanitation': 'गोठ्याची जागा कोरडी व स्वच्छ ठेवा.',
+          'immediate_action': 'Isolate affected animal immediately in a dry, sanitized stall.',
+          'sanitation': 'Disinfect shed with 4% sodium carbonate or lime powder.',
         },
         isolationRequired: false,
         zoonoticRisk: false,

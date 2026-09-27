@@ -153,7 +153,7 @@ void main() {
         durationDays: 3,
         instructionsMultilingual: const {
           'en': 'Inject under aseptic precautions.',
-          'mr': 'दररोज एकदा स्नायूमध्ये खोलवर इंजेक्शन द्यावे.',
+          'mr': 'Inject deep intramuscular once daily.',
         },
         scheduleHWarning: false,
         milkWithdrawalDays: 0,

@@ -11,6 +11,10 @@ import 'package:bioherd/features/veterinary/data/veterinary_repository.dart';
 
 void main() {
   testWidgets('BioHerdApp smoke test and launch verification', (WidgetTester tester) async {
+    tester.view.physicalSize = const Size(1200, 1000);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
     SharedPreferences.setMockInitialValues({
       'bioherd_language': 'en',
       'bioherd_dark_mode': false,
@@ -35,9 +39,10 @@ void main() {
     ));
 
     await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
 
-    // Verify app title and showcase screen loads
-    expect(find.text('BIOHERD Design System'), findsOneWidget);
-    expect(find.text('1. Brand & Semantic Color Tokens'), findsOneWidget);
+    // Verify app launches to demo login
+    expect(find.text('Welcome to BIOHERD'), findsOneWidget);
+    expect(find.text('Select your role to explore the system'), findsOneWidget);
   });
 }

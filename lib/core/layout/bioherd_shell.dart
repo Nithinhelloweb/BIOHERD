@@ -1,8 +1,12 @@
+export 'bioherd_drawer.dart';
+
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import '../../features/auth/models/user_model.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 import 'adaptive_layout.dart';
+import 'bioherd_drawer.dart';
 
 class NavigationTabItem {
   final String label;
@@ -19,15 +23,26 @@ class NavigationTabItem {
 /// BioHerdShell
 /// Master application navigation wrapper.
 /// Transitions seamlessly between:
-/// - BottomNavigationBar on mobile (<= 600dp)
+/// - Slide-Out Hamburger Side Drawer on mobile (< 600dp)
 /// - NavigationRail on tablet (600 - 1024dp)
 /// - Persistent Left Sidebar on desktop/web (>= 1024dp)
 class BioHerdShell extends StatelessWidget {
+  static final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  static void openDrawer([BuildContext? context]) {
+    scaffoldKey.currentState?.openDrawer();
+  }
+
+  static void closeDrawer([BuildContext? context]) {
+    scaffoldKey.currentState?.closeDrawer();
+  }
+
   final int currentIndex;
   final ValueChanged<int> onTabSelected;
   final List<NavigationTabItem> tabs;
   final Widget body;
   final Widget? floatingActionButton;
+  final UserModel? user;
 
   const BioHerdShell({
     super.key,
@@ -36,6 +51,7 @@ class BioHerdShell extends StatelessWidget {
     required this.tabs,
     required this.body,
     this.floatingActionButton,
+    this.user,
   });
 
   @override
@@ -48,25 +64,16 @@ class BioHerdShell extends StatelessWidget {
   }
 
   Widget _buildMobile(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     return Scaffold(
+      key: BioHerdShell.scaffoldKey,
+      drawer: BioHerdDrawer(
+        currentIndex: currentIndex,
+        onTabSelected: onTabSelected,
+        tabs: tabs,
+        user: user,
+      ),
       body: body,
       floatingActionButton: floatingActionButton,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: currentIndex,
-        onDestinationSelected: onTabSelected,
-        backgroundColor: isDark ? AppColors.darkSurface : AppColors.white,
-        elevation: 3,
-        indicatorColor: AppColors.primary100,
-        destinations: tabs.map((tab) {
-          return NavigationDestination(
-            icon: Icon(tab.icon, color: isDark ? AppColors.darkTextSecondary : AppColors.neutral700),
-            selectedIcon: Icon(tab.activeIcon, color: AppColors.primary600),
-            label: tab.label,
-          );
-        }).toList(),
-      ),
     );
   }
 

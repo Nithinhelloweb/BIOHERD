@@ -10,6 +10,7 @@ import 'package:bioherd/features/veterinary/bloc/veterinary_bloc.dart';
 import 'package:bioherd/features/veterinary/data/veterinary_repository.dart';
 import 'package:bioherd/features/veterinary/models/case_model.dart';
 import 'package:bioherd/features/veterinary/presentation/case_detail_screen.dart';
+import 'package:bioherd/core/layout/bioherd_shell.dart';
 import 'package:bioherd/features/veterinary/presentation/telemedicine_screen.dart';
 import 'package:bioherd/features/veterinary/presentation/widgets/prescription_pad_dialog.dart';
 
@@ -81,7 +82,7 @@ class _VeterinarianWorkspaceScreenState extends State<VeterinarianWorkspaceScree
           SnackBar(
             backgroundColor: AppColors.forestGreen,
             content: Text(
-              'Digital Prescription ${prescription.id} issued successfully.\nडिजिटल प्रिस्क्रिप्शन यशस्वीरीत्या नोंदवले.',
+              'Digital Prescription ${prescription.id} issued successfully.',
               style: AppTextStyles.bodySm(color: Colors.white),
             ),
           ),
@@ -94,11 +95,12 @@ class _VeterinarianWorkspaceScreenState extends State<VeterinarianWorkspaceScree
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const BioHerdHamburgerButton(),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Veterinary Clinic & Triage', style: AppTextStyles.h2(color: AppColors.neutral900)),
-            Text('पशुवैद्यकीय दवाखाना व तपासणी कक्ष', style: AppTextStyles.caption(color: AppColors.neutral500)),
+            Text('Clinical Cases & Diagnostic Triage', style: AppTextStyles.caption(color: AppColors.neutral500)),
           ],
         ),
         backgroundColor: Colors.white,
@@ -159,7 +161,6 @@ class _VeterinarianWorkspaceScreenState extends State<VeterinarianWorkspaceScree
                           const Icon(PhosphorIconsRegular.checkCircle, size: 48, color: AppColors.neutral400),
                           const SizedBox(height: 12),
                           Text('No matching veterinary cases', style: AppTextStyles.bodyLg(color: AppColors.neutral600)),
-                          Text('कोणतीही प्रलंबित केस आढळली नाही', style: AppTextStyles.caption(color: AppColors.neutral400)),
                         ],
                       ),
                     ),
@@ -197,7 +198,7 @@ class _VeterinarianWorkspaceScreenState extends State<VeterinarianWorkspaceScree
         Expanded(
           child: _buildMetricTile(
             label: 'Triage Queue',
-            sublabel: 'प्रतीक्षा',
+            sublabel: 'Pending',
             value: '${state.triageCount}',
             color: AppColors.alertAmber,
             icon: PhosphorIconsFill.hourglassHigh,
@@ -207,7 +208,7 @@ class _VeterinarianWorkspaceScreenState extends State<VeterinarianWorkspaceScree
         Expanded(
           child: _buildMetricTile(
             label: 'Critical',
-            sublabel: 'तातडीचे',
+            sublabel: 'Emergency',
             value: '${state.criticalCount}',
             color: AppColors.alertCrimson,
             icon: PhosphorIconsFill.warningCircle,
@@ -217,7 +218,7 @@ class _VeterinarianWorkspaceScreenState extends State<VeterinarianWorkspaceScree
         Expanded(
           child: _buildMetricTile(
             label: 'Prescribed',
-            sublabel: 'औषधोपचार',
+            sublabel: 'Treated',
             value: '${state.prescriptionIssuedCount}',
             color: AppColors.forestGreen,
             icon: PhosphorIconsFill.firstAid,
@@ -227,7 +228,7 @@ class _VeterinarianWorkspaceScreenState extends State<VeterinarianWorkspaceScree
         Expanded(
           child: _buildMetricTile(
             label: 'Total Active',
-            sublabel: 'एकूण केसेस',
+            sublabel: 'All Cases',
             value: '${state.cases.length}',
             color: AppColors.primary700,
             icon: PhosphorIconsFill.folderSimple,

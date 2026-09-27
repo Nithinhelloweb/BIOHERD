@@ -26,7 +26,7 @@ void main() {
     id: 'anim-pune-01',
     farmId: 'farm-001',
     species: AnimalSpeciesEnum.cattle,
-    breed: 'Gir / गीर',
+    breed: 'Gir',
     sex: 'Female',
     tagId: 'MH-PUN-019',
     createdAt: DateTime.now(),
@@ -79,7 +79,7 @@ void main() {
 
       // Verify pre-seeded demo reports appear
       expect(find.text('MH-PUN-GIR-104'), findsOneWidget);
-      expect(find.text('Lumpy Skin Disease (LSD)'), findsOneWidget);
+      expect(find.text('Lumpy Skin Disease (LSD)'), findsWidgets);
     });
   });
 
@@ -97,7 +97,7 @@ void main() {
         primaryDiagnosis: DiseasePredictionModel(
           diseaseId: 'dis-lsd',
           nameEn: 'Lumpy Skin Disease (LSD)',
-          nameMr: 'लंपी त्वचा रोग',
+          nameMr: 'Lumpy Skin Disease (LSD)',
           confidence: 0.88,
           severity: SeverityLevel.high,
           causativeAgent: 'Capripoxvirus',
@@ -108,7 +108,7 @@ void main() {
           DiseasePredictionModel(
             diseaseId: 'dis-mastitis',
             nameEn: 'Bovine Mastitis',
-            nameMr: 'स्तनदाह / मस्टायटीस',
+            nameMr: 'Bovine Mastitis',
             confidence: 0.12,
             severity: SeverityLevel.high,
             causativeAgent: 'Staphylococcus aureus',
@@ -126,8 +126,8 @@ void main() {
             'hotline': '1962',
           },
           mr: {
-            'immediate_action': 'बाधित जनावराला तात्काळ वेगळे करा.',
-            'sanitation': 'गोठ्यात जंतुनाशक फवारणी करा.',
+            'immediate_action': 'Isolate affected cow in shaded quarantine stall.',
+            'sanitation': 'Spray 1% Virkon or 2% sodium hypochlorite.',
           },
           isolationRequired: true,
           zoonoticRisk: false,
@@ -149,7 +149,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 200));
 
       expect(find.text('Lumpy Skin Disease (LSD)'), findsOneWidget);
-      expect(find.text('लंपी त्वचा रोग'), findsOneWidget);
+      expect(find.text('PRIMARY PREDICTION'), findsOneWidget);
       expect(find.text('MH-PUN-019'), findsOneWidget);
       expect(find.textContaining('Emergency First-Aid'), findsOneWidget);
       expect(find.text('1962'), findsOneWidget);
@@ -179,7 +179,7 @@ void main() {
 
       expect(find.text('AI Symptom Reporting'), findsOneWidget);
       expect(find.text('Capture Clinical Photos'), findsOneWidget);
-      expect(find.text('Next / पुढे'), findsOneWidget);
+      expect(find.text('Next'), findsOneWidget);
     });
   });
 }

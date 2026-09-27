@@ -75,7 +75,7 @@ class PrescriptionCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Dosage / मात्रा', style: AppTextStyles.caption(color: AppColors.neutral500)),
+                    Text('Dosage', style: AppTextStyles.caption(color: AppColors.neutral500)),
                     const SizedBox(height: 2),
                     Text(
                       prescription.dosage,
@@ -88,10 +88,10 @@ class PrescriptionCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Duration / कालावधी', style: AppTextStyles.caption(color: AppColors.neutral500)),
+                    Text('Duration', style: AppTextStyles.caption(color: AppColors.neutral500)),
                     const SizedBox(height: 2),
                     Text(
-                      '${prescription.durationDays} Days (दिवस)',
+                      '${prescription.durationDays} Days',
                       style: AppTextStyles.bodyMd(fontWeight: FontWeight.bold),
                     ),
                   ],
@@ -114,16 +114,9 @@ class PrescriptionCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '📋 सूचना (मराठी): ${prescription.instructionMr}',
+                  '📋 Directions: ${prescription.instructionEn.isNotEmpty ? prescription.instructionEn : prescription.instructionMr}',
                   style: AppTextStyles.bodySm(fontWeight: FontWeight.w600, color: AppColors.neutral800),
                 ),
-                if (prescription.instructionEn.isNotEmpty) ...[
-                  const SizedBox(height: 4),
-                  Text(
-                    'Directions (EN): ${prescription.instructionEn}',
-                    style: AppTextStyles.caption(color: AppColors.neutral600),
-                  ),
-                ],
               ],
             ),
           ),

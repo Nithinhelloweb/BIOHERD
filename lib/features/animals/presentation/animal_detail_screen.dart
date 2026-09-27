@@ -89,7 +89,7 @@ class _AnimalDetailScreenState extends State<AnimalDetailScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Add Health Event / आरोग्य नोंद', style: AppTextStyles.h3()),
+                        Text('Add Health Event', style: AppTextStyles.h3()),
                         IconButton(
                           icon: const Icon(PhosphorIconsRegular.x),
                           onPressed: () => Navigator.of(ctx).pop(),
@@ -103,22 +103,22 @@ class _AnimalDetailScreenState extends State<AnimalDetailScreen> {
                       spacing: 8,
                       children: [
                         ChoiceChip(
-                          label: const Text('Vaccination / लस'),
+                          label: const Text('Vaccination'),
                           selected: selectedType == 'vaccination',
                           onSelected: (val) => setSheetState(() => selectedType = 'vaccination'),
                         ),
                         ChoiceChip(
-                          label: const Text('Routine Checkup / तपासणी'),
+                          label: const Text('Routine Checkup'),
                           selected: selectedType == 'routine_checkup',
                           onSelected: (val) => setSheetState(() => selectedType = 'routine_checkup'),
                         ),
                         ChoiceChip(
-                          label: const Text('Medication / औषध'),
+                          label: const Text('Medication'),
                           selected: selectedType == 'medication',
                           onSelected: (val) => setSheetState(() => selectedType = 'medication'),
                         ),
                         ChoiceChip(
-                          label: const Text('Quarantine / विलगीकरण'),
+                          label: const Text('Quarantine'),
                           selected: selectedType == 'quarantine',
                           onSelected: (val) => setSheetState(() => selectedType = 'quarantine'),
                         ),
@@ -127,22 +127,22 @@ class _AnimalDetailScreenState extends State<AnimalDetailScreen> {
                     AppSpacing.vSpace16,
 
                     BioHerdInputField(
-                      label: 'Clinical Notes / वर्णन',
-                      hintText: 'e.g. Administered Brucellosis S19 dose / ताप ३९ अंश',
+                      label: 'Clinical Notes',
+                      hintText: 'e.g. Administered Brucellosis S19 dose / fever 39°C',
                       controller: descController,
                       maxLines: 2,
                     ),
                     AppSpacing.vSpace12,
 
                     BioHerdInputField(
-                      label: 'Practitioner / अधिकारी',
+                      label: 'Practitioner',
                       hintText: 'Doctor or Officer name',
                       controller: doctorController,
                     ),
                     AppSpacing.vSpace20,
 
                     BioHerdButton(
-                      label: 'Record Event / नोंदवा',
+                      label: 'Record Event',
                       icon: const Icon(PhosphorIconsRegular.checkCircle, color: Colors.white, size: 20),
                       onPressed: () {
                         if (descController.text.trim().isEmpty) return;
@@ -276,7 +276,7 @@ class _AnimalDetailScreenState extends State<AnimalDetailScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Health Triage Status / आरोग्य स्थिती बदल',
+                    'Health Triage Status',
                     style: AppTextStyles.label(color: AppColors.neutral700).copyWith(fontWeight: FontWeight.w700),
                   ),
                   AppSpacing.vSpace12,
@@ -303,7 +303,7 @@ class _AnimalDetailScreenState extends State<AnimalDetailScreen> {
                             ),
                             const SizedBox(width: 6),
                             Text(
-                              '${status.label} (${status.labelMr})',
+                              status.label,
                               style: AppTextStyles.caption(
                                 color: isSelected ? status.textColor : AppColors.neutral700,
                               ).copyWith(fontWeight: isSelected ? FontWeight.w700 : FontWeight.normal),
@@ -384,7 +384,7 @@ class _AnimalDetailScreenState extends State<AnimalDetailScreen> {
                     ),
                   ),
                   BioHerdButton(
-                    label: 'Check / तपासा',
+                    label: 'Check',
                     isFullWidth: false,
                     onPressed: () {
                       Navigator.of(context).push(
@@ -407,7 +407,7 @@ class _AnimalDetailScreenState extends State<AnimalDetailScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Health Timeline', style: AppTextStyles.h3()),
-                    Text('आरोग्य नोंदी व लसीकरण इतिहास', style: AppTextStyles.caption(color: AppColors.neutral500)),
+                    Text('Health records & vaccination history', style: AppTextStyles.caption(color: AppColors.neutral500)),
                   ],
                 ),
                 TextButton.icon(

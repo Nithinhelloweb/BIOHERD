@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bioherd/features/auth/models/user_model.dart';
 
 abstract class AuthEvent {
   const AuthEvent();
@@ -53,4 +54,10 @@ class AuthLogoutSubmitted extends AuthEvent {
 class AuthLanguageChanged extends AuthEvent {
   final Locale locale;
   const AuthLanguageChanged(this.locale);
+}
+
+/// Triggered when user selects a demo persona (no backend needed).
+class DemoLoginRequested extends AuthEvent {
+  final UserRole role;
+  const DemoLoginRequested(this.role);
 }

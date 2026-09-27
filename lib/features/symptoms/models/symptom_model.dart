@@ -132,9 +132,9 @@ class FirstAidModel {
   });
 
   String get immediateActionEn => (en['immediate_action'] as String?) ?? 'Isolate animal and contact veterinarian.';
-  String get immediateActionMr => (mr['immediate_action'] as String?) ?? 'बाधित जनावराला वेगळे ठेवा आणि पशुवैद्यांशी संपर्क साधा.';
+  String get immediateActionMr => (mr['immediate_action'] as String?) ?? immediateActionEn;
   String get sanitationEn => (en['sanitation'] as String?) ?? (en['disinfection'] as String?) ?? 'Disinfect cattle stall thoroughly.';
-  String get sanitationMr => (mr['sanitation'] as String?) ?? (mr['disinfection'] as String?) ?? 'गोठा चुना व जंतुनाशकाने स्वच्छ करा.';
+  String get sanitationMr => (mr['sanitation'] as String?) ?? (mr['disinfection'] as String?) ?? sanitationEn;
   String get isolationProtocolsMr => (mr['isolation'] as String?) ?? immediateActionMr;
   String get disinfectionMr => sanitationMr;
   String get emergencyHotline => (en['hotline'] as String?) ?? '1962';

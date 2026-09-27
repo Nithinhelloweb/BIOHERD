@@ -58,7 +58,7 @@ void main() {
 
       // Verify Header and Subtitle
       expect(find.text('Veterinary Clinic & Triage'), findsOneWidget);
-      expect(find.text('पशुवैद्यकीय दवाखाना व तपासणी कक्ष'), findsOneWidget);
+      expect(find.text('Clinical Cases & Diagnostic Triage'), findsOneWidget);
 
       // Verify Metrics
       expect(find.text('Triage Queue'), findsWidgets);
@@ -178,19 +178,19 @@ void main() {
       expect(find.textContaining('420 kg'), findsWidgets);
 
       // Verify Drug Selection Dropdown
-      expect(find.text('Select Drug from Formulary / औषध निवडा'), findsOneWidget);
+      expect(find.text('Select Drug from Formulary'), findsOneWidget);
 
       // Verify Dosage and Duration Fields
-      expect(find.text('Calculated Dose / मात्रा'), findsOneWidget);
-      expect(find.text('Duration / दिवस'), findsOneWidget);
+      expect(find.text('Calculated Dose'), findsOneWidget);
+      expect(find.text('Duration'), findsOneWidget);
 
       // Scroll down in dialog ListView to reveal MSVC registration field
       await tester.drag(find.byType(ListView), const Offset(0, -300));
       await tester.pump();
 
       // Verify Registration Input and Action Button
-      expect(find.text('MSVC Registration No. / डॉक्टर नोंदणी क्रमांक'), findsOneWidget);
-      expect(find.text('Sign & Issue Rx / पाठवा'), findsOneWidget);
+      expect(find.text('MSVC Registration No.'), findsOneWidget);
+      expect(find.text('Sign & Issue Rx'), findsOneWidget);
     });
 
     testWidgets('PrescriptionCard renders official MSVC header, withdrawal rules, and signature hash', (tester) async {
@@ -208,7 +208,7 @@ void main() {
         durationDays: 3,
         instructionsMultilingual: const {
           'en': 'Reconstitute with Sterile Water. Administer slowly IV once daily for 3 days.',
-          'mr': 'जंतुविरहित पाण्यात विरघळवून शिरेतून हळूहळू दररोज एकदा ३ दिवस द्या. दूध ७ दिवस फेकून द्यावे.',
+          'mr': 'Reconstitute with Sterile Water. Administer slowly IV once daily for 3 days. Discard milk for 7 days.',
         },
         scheduleHWarning: true,
         milkWithdrawalDays: 7,
@@ -241,8 +241,8 @@ void main() {
       expect(find.textContaining('Milk 7d'), findsOneWidget);
       expect(find.textContaining('Meat 28d'), findsOneWidget);
 
-      // Verify Bilingual Instructions
-      expect(find.textContaining('जंतुविरहित पाण्यात'), findsOneWidget);
+      // Verify Instructions
+      expect(find.textContaining('Reconstitute with Sterile Water'), findsOneWidget);
 
       // Verify Digital Signature Badge
       expect(find.textContaining('Digitally Signed: #a89c3b7e4f1a...'), findsOneWidget);

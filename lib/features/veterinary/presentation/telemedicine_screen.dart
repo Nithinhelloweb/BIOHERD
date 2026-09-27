@@ -79,8 +79,8 @@ class _TelemedicineScreenState extends State<TelemedicineScreen> with SingleTick
         backgroundColor: _isLowBandwidthMode ? AppColors.forestGreen : AppColors.primary700,
         content: Text(
           _isLowBandwidthMode
-              ? 'Low-Bandwidth Mode Enabled (Audio prioritized, 120 kbps codec)\nकमी बँडविड्थ मोड सुरू केला (ऑडिओ प्राधान्य)'
-              : 'HD Video Mode Enabled (500+ kbps)\nहाय-डेफिनिशन व्हिडिओ मोड सुरू केला',
+              ? 'Low-Bandwidth Mode Enabled (Audio prioritized, 120 kbps codec)'
+              : 'HD Video Mode Enabled (500+ kbps)',
         ),
       ),
     );
@@ -92,7 +92,7 @@ class _TelemedicineScreenState extends State<TelemedicineScreen> with SingleTick
       builder: (ctx) => AlertDialog(
         title: const Text('End Consultation?'),
         content: const Text(
-          'Are you sure you want to end this telemedicine session? You can issue a prescription or review case notes now.\n\nसल्लामसलत सत्र समाप्त करायचे आहे का?',
+          'Are you sure you want to end this telemedicine session? You can issue a prescription or review case notes now.',
         ),
         actions: [
           TextButton(
@@ -378,7 +378,7 @@ class _TelemedicineScreenState extends State<TelemedicineScreen> with SingleTick
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Temp: 104.5°F', style: AppTextStyles.bodySm(color: Colors.white, fontWeight: FontWeight.bold)),
-                  Text('High Fever / ताप', style: AppTextStyles.caption(color: Colors.white60)),
+                  Text('High Fever', style: AppTextStyles.caption(color: Colors.white60)),
                 ],
               ),
             ],
@@ -392,7 +392,7 @@ class _TelemedicineScreenState extends State<TelemedicineScreen> with SingleTick
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('${widget.caseModel.weightKg.toInt()} kg', style: AppTextStyles.bodySm(color: Colors.white, fontWeight: FontWeight.bold)),
-                  Text('Weight / वजन', style: AppTextStyles.caption(color: Colors.white60)),
+                  Text('Weight', style: AppTextStyles.caption(color: Colors.white60)),
                 ],
               ),
             ],

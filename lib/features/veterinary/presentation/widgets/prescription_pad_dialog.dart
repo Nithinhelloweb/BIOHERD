@@ -117,7 +117,7 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
   void _submitPrescription() {
     if (_selectedDrug == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please select a drug / कृपया औषध निवडा')),
+        const SnackBar(content: Text('Please select a drug')),
       );
       return;
     }
@@ -185,7 +185,7 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
                       children: [
                         Text('Digital Veterinary Prescription Pad', style: AppTextStyles.h3(color: Colors.white)),
                         Text(
-                          'महाराष्ट्र शासन पशुसंवर्धन विभाग • MSVC Compliant',
+                          'Department of Animal Husbandry • MSVC Compliant',
                           style: AppTextStyles.caption(color: Colors.white70),
                         ),
                       ],
@@ -239,7 +239,7 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
                         const SizedBox(height: AppSpacing.space16),
 
                         // Formulary Drug Dropdown
-                        Text('Select Drug from Formulary / औषध निवडा', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
+                        Text('Select Drug from Formulary', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
                         const SizedBox(height: 6),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -317,7 +317,7 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Calculated Dose / मात्रा', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
+                                  Text('Calculated Dose', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
                                   const SizedBox(height: 6),
                                   TextField(
                                     controller: _dosageController,
@@ -336,7 +336,7 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Duration / दिवस', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
+                                  Text('Duration', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
                                   const SizedBox(height: 6),
                                   TextField(
                                     controller: _durationController,
@@ -375,7 +375,7 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
                                     const Icon(PhosphorIconsFill.shieldWarning, color: AppColors.alertAmber, size: 18),
                                     const SizedBox(width: 6),
                                     Text(
-                                      'Mandatory Food Safety Withdrawal Periods / विल्हेवाट नियम',
+                                      'Mandatory Food Safety Withdrawal Periods',
                                       style: AppTextStyles.caption(fontWeight: FontWeight.bold, color: AppColors.neutral900),
                                     ),
                                   ],
@@ -414,8 +414,8 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
                           ),
                         const SizedBox(height: AppSpacing.space16),
 
-                        // Bilingual Instructions
-                        Text('Marathi Instructions / मराठीत सूचना (शेतकऱ्यासाठी)', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
+                        // Instructions
+                        Text('Clinical Instructions', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
                         const SizedBox(height: 6),
                         TextField(
                           controller: _notesMrController,
@@ -423,7 +423,7 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
                           decoration: InputDecoration(
                             isDense: true,
                             border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                            hintText: 'उदा. दररोज सकाळी आणि संध्याकाळी ५ दिवस द्या...',
+                            hintText: 'e.g. Administer 5ml morning and evening for 5 days...',
                           ),
                         ),
                         const SizedBox(height: AppSpacing.space8),
@@ -442,7 +442,7 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
                         const SizedBox(height: AppSpacing.space16),
 
                         // Vet Council Registration
-                        Text('MSVC Registration No. / डॉक्टर नोंदणी क्रमांक', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
+                        Text('MSVC Registration No.', style: AppTextStyles.bodySm(fontWeight: FontWeight.bold)),
                         const SizedBox(height: 6),
                         TextField(
                           controller: _vetRegController,
@@ -476,14 +476,14 @@ class _PrescriptionPadDialogState extends State<PrescriptionPadDialog> {
                         padding: const EdgeInsets.symmetric(vertical: 14),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                       ),
-                      child: const Text('Cancel / रद्द करा'),
+                      child: const Text('Cancel'),
                     ),
                   ),
                   const SizedBox(width: AppSpacing.space16),
                   Expanded(
                     flex: 2,
                     child: BioHerdButton(
-                      label: 'Sign & Issue Rx / पाठवा',
+                      label: 'Sign & Issue Rx',
                       icon: PhosphorIconsFill.checkCircle,
                       isLoading: _isSubmitting,
                       onPressed: _submitPrescription,

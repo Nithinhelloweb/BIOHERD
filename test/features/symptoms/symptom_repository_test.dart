@@ -14,7 +14,7 @@ void main() {
   });
 
   group('OfflineFirstSymptomRepository Tests', () {
-    test('getBodySystemCategories returns 6 categories with symptoms and Marathi terms', () {
+    test('getBodySystemCategories returns 6 categories with symptoms', () {
       final categories = repository.getBodySystemCategories();
       expect(categories.length, 6);
 
@@ -28,7 +28,7 @@ void main() {
         'digestive_excretory',
       ]));
 
-      // Verify Marathi translations present
+      // Verify translations present
       for (final cat in categories) {
         expect(cat.nameMr.isNotEmpty, isTrue);
         expect(cat.symptoms.isNotEmpty, isTrue);
@@ -62,7 +62,7 @@ void main() {
           'skin_coat': ['nodular_skin_lesions', 'hard_nodules_all_over_body'],
           'vitality': ['high_fever'],
         },
-        vernacularDescription: 'अंगावर मोठ्या कडक गाठी आल्या आहेत आणि ताप आहे',
+        vernacularDescription: 'Large hard nodules on body with fever',
         images: ['nodular_skin_lesions.jpg'],
       );
 
@@ -73,7 +73,7 @@ void main() {
       final primary = report.detectionResult!.primaryDiagnosis;
       expect(primary.diseaseId, 'dis-lsd');
       expect(primary.confidence, greaterThanOrEqualTo(0.8));
-      expect(primary.diseaseNameMr, anyOf(contains('लंपी'), contains('लम्पी')));
+      expect(primary.diseaseNameMr, contains('Lumpy'));
 
       // Check first aid
       final firstAid = report.detectionResult!.firstAid;
@@ -96,13 +96,13 @@ void main() {
         symptomsChecklist: {
           'udder_milk': ['swollen_hot_painful_udder', 'clots_flakes_watery_milk'],
         },
-        vernacularDescription: 'कास खूप सुजली आहे आणि दुधात गाठी येतात',
+        vernacularDescription: 'Severely swollen udder and clots in milk',
       );
 
       expect(report.detectionResult, isNotNull);
       final primary = report.detectionResult!.primaryDiagnosis;
       expect(primary.diseaseId, 'dis-mastitis');
-      expect(report.detectionResult!.firstAid.supportiveCareMr, anyOf(contains('कास'), contains('सड')));
+      expect(report.detectionResult!.firstAid.supportiveCareMr, contains('Isolate'));
     });
   });
 }

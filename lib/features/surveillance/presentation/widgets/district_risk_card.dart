@@ -123,6 +123,44 @@ class DistrictRiskCard extends StatelessWidget {
                             color: r0Color,
                           ),
                         ),
+                        if (district.riskScoreDelta != 0.0) ...[
+                          const SizedBox(width: 6),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1.5),
+                            decoration: BoxDecoration(
+                              color: (district.riskScoreDelta > 0
+                                      ? AppColors.alertRed
+                                      : AppColors.primaryGreen)
+                                  .withValues(alpha: 0.15),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  district.riskScoreDelta > 0
+                                      ? PhosphorIconsRegular.trendUp
+                                      : PhosphorIconsRegular.trendDown,
+                                  size: 10,
+                                  color: district.riskScoreDelta > 0
+                                      ? AppColors.alertRed
+                                      : AppColors.primaryGreen,
+                                ),
+                                const SizedBox(width: 2),
+                                Text(
+                                  '${district.riskScoreDelta > 0 ? "+" : ""}${district.riskScoreDelta.toStringAsFixed(1)}',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    color: district.riskScoreDelta > 0
+                                        ? AppColors.alertRed
+                                        : AppColors.primaryGreen,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ],
                     ),
                   ],

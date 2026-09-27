@@ -5,6 +5,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.logging import get_logger
 from app.core.security import get_password_hash
 from app.db.models import (
+    Advisory,
+    AlertBroadcast,
     Animal,
     AnimalSpecies,
     Case,
@@ -14,11 +16,15 @@ from app.db.models import (
     Farm,
     HealthEvent,
     HealthEventType,
+    LabSample,
+    LivestockMovement,
+    MortalityReport,
     OutbreakEvent,
     SeverityLevelEnum,
     SymptomReport,
     User,
     UserRole,
+    VaccinationDrive,
 )
 
 logger = get_logger("seeder")
@@ -94,7 +100,7 @@ async def seed_districts(session: AsyncSession) -> Dict[str, District]:
     return district_map
 
 async def seed_users(session: AsyncSession, district_map: Dict[str, District]) -> Dict[str, User]:
-    """Seed initial role personas (farmer, vet, district official, state admin)."""
+    """Seed initial role personas (all 7 RBAC roles with authentic geographical scopes)."""
     users_data = [
         {
             "phone": "+919876543210",
@@ -102,6 +108,18 @@ async def seed_users(session: AsyncSession, district_map: Dict[str, District]) -
             "full_name": "Ramesh Patil",
             "role": UserRole.FARMER,
             "district": "Pune",
+            "block": "Haveli",
+            "village": "Wagholi",
+            "lang": "mr",
+        },
+        {
+            "phone": "+919876543214",
+            "email": "paravet.ganesh@bioherd.in",
+            "full_name": "Ganesh More (Pashu Sakha)",
+            "role": UserRole.PARAVET,
+            "district": "Pune",
+            "block": "Haveli",
+            "village": "Wagholi",
             "lang": "mr",
         },
         {
@@ -110,7 +128,20 @@ async def seed_users(session: AsyncSession, district_map: Dict[str, District]) -
             "full_name": "Dr. Anjali Deshmukh",
             "role": UserRole.VETERINARIAN,
             "district": "Pune",
+            "block": "Haveli",
+            "village": None,
             "lang": "mr",
+        },
+        {
+            "phone": "+919876543215",
+            "email": "lab.vikram@bioherd.in",
+            "full_name": "Dr. Vikram Joshi (Lab Tech)",
+            "role": UserRole.LAB_TECHNICIAN,
+            "district": "Pune",
+            "block": "Haveli",
+            "village": None,
+            "lab_id": "DIS-LAB-PUNE-01",
+            "lang": "en",
         },
         {
             "phone": "+919876543212",
@@ -118,6 +149,8 @@ async def seed_users(session: AsyncSession, district_map: Dict[str, District]) -
             "full_name": "Rajesh Shinde",
             "role": UserRole.DISTRICT_OFFICIAL,
             "district": "Ahmednagar",
+            "block": None,
+            "village": None,
             "lang": "mr",
         },
         {
@@ -126,6 +159,18 @@ async def seed_users(session: AsyncSession, district_map: Dict[str, District]) -
             "full_name": "Dr. Suresh Kulkarni",
             "role": UserRole.STATE_ADMIN,
             "district": "Pune",
+            "block": None,
+            "village": None,
+            "lang": "en",
+        },
+        {
+            "phone": "+919876543299",
+            "email": "superadmin@bioherd.in",
+            "full_name": "BIOHERD Super Administrator",
+            "role": UserRole.SUPER_ADMIN,
+            "district": "Pune",
+            "block": None,
+            "village": None,
             "lang": "en",
         },
     ]
@@ -145,6 +190,9 @@ async def seed_users(session: AsyncSession, district_map: Dict[str, District]) -
             existing.full_name = u["full_name"]
             existing.role = u["role"]
             existing.district_id = dist_id
+            existing.block = u.get("block")
+            existing.village = u.get("village")
+            existing.lab_id = u.get("lab_id")
             user_map[u["role"].value] = existing
         else:
             user = User(
@@ -155,6 +203,9 @@ async def seed_users(session: AsyncSession, district_map: Dict[str, District]) -
                 role=u["role"],
                 preferred_language=u["lang"],
                 district_id=dist_id,
+                block=u.get("block"),
+                village=u.get("village"),
+                lab_id=u.get("lab_id"),
             )
             session.add(user)
             user_map[u["role"].value] = user
@@ -291,6 +342,145 @@ async def seed_drug_inventory_and_outbreaks(
     await session.flush()
     logger.info("inventory_and_outbreaks_seeded")
 
+
+async def seed_extended_features(
+    session: AsyncSession,
+    district_map: Dict[str, District],
+    user_map: Dict[str, User],
+    animals: List[Animal],
+) -> None:
+    """Seed vaccination drives, laboratory samples, advisories, livestock movements, and mortality incidents."""
+    pune_dist = district_map.get("Pune")
+    ahmednagar_dist = district_map.get("Ahmednagar")
+    vet = user_map.get(UserRole.VETERINARIAN.value)
+    paravet = user_map.get(UserRole.PARAVET.value)
+    farmer = user_map.get(UserRole.FARMER.value)
+    dvo = user_map.get(UserRole.DISTRICT_OFFICIAL.value)
+    admin = user_map.get(UserRole.STATE_ADMIN.value)
+
+    if not pune_dist or not vet:
+        return
+
+    now = datetime.now(timezone.utc)
+
+    # 1. Update first animal with pregnancy reproductive status
+    if animals:
+        animals[0].reproductive_status = "pregnant"
+        animals[0].last_insemination_date = now - timedelta(days=120)
+        animals[0].expected_calving_date = now + timedelta(days=160)
+        animals[0].lactation_count = 2
+
+    # 2. Vaccination Drive (FMD Mission 2026)
+    drive_stmt = select(VaccinationDrive).where(VaccinationDrive.title == "Pune District FMD Ring Vaccination Campaign 2026")
+    if not (await session.execute(drive_stmt)).scalar_one_or_none():
+        drive = VaccinationDrive(
+            title="Pune District FMD Ring Vaccination Campaign 2026",
+            target_disease="Foot and Mouth Disease (FMD)",
+            vaccine_name="Raksha-Ovac Polyvalent (FMD)",
+            district_id=pune_dist.id,
+            block="Haveli",
+            village="Wagholi",
+            start_date=now - timedelta(days=5),
+            end_date=now + timedelta(days=25),
+            target_animals_count=500,
+            completed_doses=380,
+            status="in_progress",
+            created_by=vet.id,
+            assigned_vet_id=vet.id,
+        )
+        session.add(drive)
+
+    # 3. Lab Sample (PCR test for Lumpy Skin Disease)
+    sample_stmt = select(LabSample).where(LabSample.sample_code == "SMP-2026-4412")
+    if not (await session.execute(sample_stmt)).scalar_one_or_none():
+        first_animal_id = animals[0].id if animals else None
+        lab_sample = LabSample(
+            sample_code="SMP-2026-4412",
+            animal_id=first_animal_id,
+            district_id=pune_dist.id,
+            collected_by=vet.id,
+            collection_date=now - timedelta(days=1),
+            sample_type="whole_blood",
+            suspected_disease="Lumpy Skin Disease",
+            transit_status="completed",
+            current_lab_name="District Disease Diagnostic Lab Pune",
+            test_method="Real-Time PCR",
+            test_result="positive",
+            pathogen_confirmed="Capripoxvirus (LSD)",
+            is_zoonotic=False,
+            result_notes="High viral titer detected in whole blood EDTA tube. Ring vaccination recommended.",
+            result_date=now,
+        )
+        session.add(lab_sample)
+
+    # 4. Multilingual Advisory (LSD Biosecurity & Prevention)
+    adv_stmt = select(Advisory).where(Advisory.disease_target == "Lumpy Skin Disease")
+    if not (await session.execute(adv_stmt)).scalar_one_or_none():
+        author_id = admin.id if admin else vet.id
+        adv = Advisory(
+            title_multilingual_json={
+                "en": "Advisory: Monsoon Prevention of Lumpy Skin Disease (LSD)",
+                "mr": "सल्ला: पावसाळ्यातील गाठींचा त्वचा रोग (लम्पी स्कीन) प्रतिबंधात्मक उपाय",
+                "hi": "सलाह: लंपी त्वचा रोग की रोकथाम एवं लक्षण",
+            },
+            content_multilingual_json={
+                "en": "Isolate cattle with skin lumps immediately. Apply neem-turmeric paste on lesions. Smoke cattle sheds at dusk to deter vector mosquitoes and biting flies. Report to Pashu Chikitsalaya immediately.",
+                "mr": "अंगावर गाठी दिसणाऱ्या जनावराला इतर जनावरांपासून तात्काळ वेगळे करा. फुटलेल्या गाठींवर कडुलिंब व हळदीचा लेप लावा. गोठ्यात धूर करून डास व माश्यांचा उपद्रव थांबवा. पशुवैद्यकीय दवाखान्यात तात्काळ कळवा.",
+                "hi": "गांठ वाले पशुओं को तुरंत अलग करें। नीम और हल्दी का लेप लगाएं। गोशाला में धुआं करके मक्खी-मच्छरों से बचाव करें।",
+            },
+            category="prevention",
+            disease_target="Lumpy Skin Disease",
+            author_id=author_id,
+            status="published",
+            target_district_id=pune_dist.id,
+            published_at=now,
+        )
+        session.add(adv)
+
+    # 5. Livestock Movement Permit
+    mov_stmt = select(LivestockMovement).where(LivestockMovement.permit_number == "MH-TRP-2026-88124")
+    if not (await session.execute(mov_stmt)).scalar_one_or_none() and ahmednagar_dist:
+        first_tag = animals[0].tag_id if animals else "MH-PUN-2026-001"
+        movement = LivestockMovement(
+            permit_number="MH-TRP-2026-88124",
+            animal_ids=[first_tag],
+            origin_district_id=pune_dist.id,
+            origin_block="Haveli",
+            destination_district_id=ahmednagar_dist.id,
+            destination_block="Sangamner",
+            purpose="mandi_sale",
+            health_certificate_issued=True,
+            inspection_status="approved",
+            quarantine_flag=False,
+            departed_at=now - timedelta(hours=6),
+        )
+        session.add(movement)
+
+    # 6. Mortality Report
+    reporter_id = paravet.id if paravet else (farmer.id if farmer else vet.id)
+    mort_stmt = select(MortalityReport).where(MortalityReport.reported_by == reporter_id)
+    if not (await session.execute(mort_stmt)).scalar_one_or_none():
+        mort = MortalityReport(
+            reported_by=reporter_id,
+            district_id=pune_dist.id,
+            block="Haveli",
+            village="Wagholi",
+            species=AnimalSpecies.CATTLE,
+            animal_count=1,
+            probable_cause="Suspected Acute Hemorrhagic Septicaemia",
+            symptoms=["throat_swelling", "high_fever", "respiratory_distress"],
+            mortality_date=now - timedelta(days=2),
+            disposal_method="deep_burial",
+            post_mortem_conducted=False,
+            zoonotic_risk=False,
+            status="verified",
+        )
+        session.add(mort)
+
+    await session.flush()
+    logger.info("extended_features_seeded")
+
+
 async def seed_all(session: AsyncSession) -> Dict[str, Any]:
     """Execute complete database seeding."""
     logger.info("beginning_bioherd_database_seed")
@@ -298,6 +488,7 @@ async def seed_all(session: AsyncSession) -> Dict[str, Any]:
     user_map = await seed_users(session, district_map)
     animals = await seed_farms_and_animals(session, user_map, district_map)
     await seed_drug_inventory_and_outbreaks(session, district_map)
+    await seed_extended_features(session, district_map, user_map, animals)
     await session.commit()
     logger.info("bioherd_database_seed_complete")
     return {
@@ -305,3 +496,4 @@ async def seed_all(session: AsyncSession) -> Dict[str, Any]:
         "users_count": len(user_map),
         "animals_count": len(animals),
     }
+

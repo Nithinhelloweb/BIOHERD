@@ -208,17 +208,17 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       if (drug.category.contains('Intramammary')) {
         volumeMl = 10.0;
         displayDose = '1 Syringe / quarter';
-        displayDoseMr = '१ सिरिंज प्रति बाधित सड';
+        displayDoseMr = '1 syringe per affected quarter';
       } else {
         volumeMl = 0.0;
         displayDose = 'Topical Application';
-        displayDoseMr = 'गरजेनुसार मलम लावा';
+        displayDoseMr = 'Apply topically as required';
       }
     } else {
       totalMg = (bodyWeightKg * drug.dosePerKgMg * 10).round() / 10.0;
       volumeMl = (totalMg / drug.concentrationMgMl * 10).round() / 10.0;
       displayDose = '$volumeMl ml ($totalMg mg active)';
-      displayDoseMr = '$volumeMl मिली ($totalMg मिग्रॅ सक्रिय घटक)';
+      displayDoseMr = '$volumeMl ml ($totalMg mg active ingredient)';
     }
 
     return DosageCalculationResult(
@@ -288,15 +288,15 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
         priority: CasePriority.high,
         animalId: 'ANM-SOL-01',
         animalTagId: 'MH-SOL-KHIL-4401',
-        animalSpecies: 'Cattle (गाय)',
-        animalBreed: 'Khillari (खिल्लारी)',
+        animalSpecies: 'Cattle',
+        animalBreed: 'Khillari',
         animalWeightKg: 420.0,
         farmerId: 'FARMER-01',
         farmerName: 'Dnyaneshwar Shinde',
         farmerPhone: '+91 98765 40011',
-        districtName: 'Solapur (सोलापूर)',
+        districtName: 'Solapur',
         primarySuspect: 'Foot and Mouth Disease',
-        primarySuspectMr: 'लाळ्या खुरकूत',
+        primarySuspectMr: 'Foot and Mouth Disease',
         aiConfidence: 92.5,
         hasPrescription: false,
         symptomsSummary: const ['High Fever', 'Stringy Salivation', 'Hoof Blisters', 'Severe Lameness'],
@@ -316,15 +316,15 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
         priority: CasePriority.critical,
         animalId: 'ANM-KOL-02',
         animalTagId: 'MH-KOL-PAND-9912',
-        animalSpecies: 'Buffalo (म्हैस)',
-        animalBreed: 'Pandharpuri (पंढरपुरी)',
+        animalSpecies: 'Buffalo',
+        animalBreed: 'Pandharpuri',
         animalWeightKg: 480.0,
         farmerId: 'FARMER-02',
         farmerName: 'Subhash Patil',
         farmerPhone: '+91 98765 40022',
-        districtName: 'Kolhapur (कोल्हापूर)',
+        districtName: 'Kolhapur',
         primarySuspect: 'Lumpy Skin Disease',
-        primarySuspectMr: 'लंपी त्वचा रोग',
+        primarySuspectMr: 'Lumpy Skin Disease',
         aiConfidence: 95.0,
         hasPrescription: false,
         symptomsSummary: const ['Cutaneous Nodules', 'Prescapular Lymphadenopathy', 'High Pyrexia'],
@@ -344,15 +344,15 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
         priority: CasePriority.high,
         animalId: 'ANM-AHM-03',
         animalTagId: 'MH-AHM-DEON-2203',
-        animalSpecies: 'Cattle (गाय)',
-        animalBreed: 'Deoni (देवणी)',
+        animalSpecies: 'Cattle',
+        animalBreed: 'Deoni',
         animalWeightKg: 380.0,
         farmerId: 'FARMER-03',
         farmerName: 'Anand Gite',
         farmerPhone: '+91 98765 40033',
-        districtName: 'Ahmednagar (अहमदनगर)',
+        districtName: 'Ahmednagar',
         primarySuspect: 'Bovine Mastitis',
-        primarySuspectMr: 'तीव्र स्तनदाह',
+        primarySuspectMr: 'Acute Mastitis',
         aiConfidence: 94.0,
         hasPrescription: true,
         symptomsSummary: const ['Swollen Right Quarter', 'Milk Clots & Flakes', 'Drop in Milk Yield'],
@@ -370,7 +370,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
             durationDays: 3,
             instructionsMultilingual: const {
               'en': 'Slow IV once daily for 3 days. Discard milk for 7 days.',
-              'mr': 'शिरेतून हळूहळू दररोज एकदा ३ दिवस द्या. दूध ७ दिवस वापरू नका.',
+        'mr': 'Slow IV once daily for 3 days. Discard milk for 7 days.',
             },
             scheduleHWarning: true,
             milkWithdrawalDays: 7,
@@ -388,7 +388,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
             durationDays: 3,
             instructionsMultilingual: const {
               'en': 'Deep IM for fever and udder pain for 3 days.',
-              'mr': 'कासदुखी आणि ताप कमी करण्यासाठी खोल स्नायूत ३ दिवस द्या.',
+        'mr': 'Deep IM for fever and udder pain for 3 days.',
             },
             scheduleHWarning: false,
             milkWithdrawalDays: 2,
@@ -410,15 +410,15 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
         priority: CasePriority.medium,
         animalId: 'ANM-PUN-04',
         animalTagId: 'MH-PUN-OSM-7704',
-        animalSpecies: 'Goat (शेळी)',
-        animalBreed: 'Osmanabadi (उस्मानाबादी)',
+        animalSpecies: 'Goat',
+        animalBreed: 'Osmanabadi',
         animalWeightKg: 38.0,
         farmerId: 'FARMER-04',
         farmerName: 'Pandurang Jagtap',
         farmerPhone: '+91 98765 40044',
-        districtName: 'Pune (पुणे)',
+        districtName: 'Pune',
         primarySuspect: 'Peste des Petits Ruminants',
-        primarySuspectMr: 'शेळ्यांमधील देवी रोग',
+        primarySuspectMr: 'Goat Pox',
         aiConfidence: 89.0,
         hasPrescription: true,
         symptomsSummary: const ['Mouth Ulcers', 'Foul Diarrhea', 'Ocular Discharge'],
@@ -437,7 +437,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       category: 'Fluoroquinolone Antibiotic',
       scheduleH: true,
       targetSpecies: ['cattle', 'buffalo', 'goat', 'sheep', 'pig'],
-      indications: ['Haemorrhagic Septicaemia (घटसर्प)', 'Black Quarter (एकटांग्या)', 'Severe Enteritis'],
+      indications: ['Haemorrhagic Septicaemia', 'Black Quarter', 'Severe Enteritis'],
       route: 'Intramuscular (IM)',
       dosePerKgMg: 5.0,
       concentrationMgMl: 100.0,
@@ -445,7 +445,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 4,
       meatWithdrawalDays: 14,
       instructionsEn: 'Administer deep IM once daily for 4 days. Discard milk for 4 days.',
-      instructionsMr: 'दररोज एकदा खोल स्नायूत ४ दिवस द्या. दूध ४ दिवस मानवी वापरासाठी वापरू नये.',
+      instructionsMr: 'Administer deep IM once daily for 4 days. Discard milk for 4 days.',
       contraindications: 'Strictly Schedule-H. Do not use in calves under 12 months with cartilage disorders.',
     ),
     DrugItem(
@@ -455,7 +455,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       category: '3rd Gen Cephalosporin Antibiotic',
       scheduleH: true,
       targetSpecies: ['cattle', 'buffalo', 'goat', 'sheep'],
-      indications: ['Acute Bovine Mastitis (स्तनदाह)', 'Severe Metritis', 'Sepsis in LSD'],
+      indications: ['Acute Bovine Mastitis', 'Severe Metritis', 'Sepsis in LSD'],
       route: 'Slow Intravenous (IV/IM)',
       dosePerKgMg: 10.0,
       concentrationMgMl: 150.0,
@@ -463,7 +463,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 7,
       meatWithdrawalDays: 28,
       instructionsEn: 'Reconstitute with Sterile Water. Administer slowly IV once daily for 3 days.',
-      instructionsMr: 'जंतुविरहित पाण्यात विरघळवून शिरेतून हळूहळू दररोज एकदा ३ दिवस द्या. दूध ७ दिवस फेकून द्यावे.',
+      instructionsMr: 'Reconstitute with Sterile Water. Administer slowly IV once daily for 3 days.',
       contraindications: 'Do not use in animals hypersensitive to cephalosporins.',
     ),
     DrugItem(
@@ -481,7 +481,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 2,
       meatWithdrawalDays: 5,
       instructionsEn: 'Administer deep IM once daily for 3 days for acute fever and inflammatory swelling.',
-      instructionsMr: 'तीव्र ताप आणि वेदना कमी करण्यासाठी दररोज एकदा खोल स्नायूत ३ दिवस द्या.',
+      instructionsMr: 'Administer deep IM once daily for 3 days for acute fever and inflammatory swelling.',
       contraindications: 'Avoid in severely dehydrated or renal compromised animals.',
     ),
     DrugItem(
@@ -499,7 +499,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 28,
       meatWithdrawalDays: 35,
       instructionsEn: 'Administer SC behind the shoulder. Never inject IV or IM. Milk withdrawal 28 days.',
-      instructionsMr: 'फक्त कातडीखाली सैल जागेत (SC) टोचा. चुकूनही स्नायूत देऊ नका. २८ दिवस दूध विकू नये.',
+      instructionsMr: 'Administer SC behind the shoulder. Never inject IV or IM. Milk withdrawal 28 days.',
       contraindications: 'Strictly SC. Not recommended in lactating cows producing milk for immediate consumption.',
     ),
     DrugItem(
@@ -517,7 +517,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 7,
       meatWithdrawalDays: 21,
       instructionsEn: 'Single deep IM depot injection. Provides 72 hours sustained therapeutic coverage.',
-      instructionsMr: 'एकाच वेळी खोल स्नायूत द्या. ३ दिवस शरीरात औषध टिकून राहते. ७ दिवस दूध विकू नका.',
+      instructionsMr: 'Single deep IM depot injection. Provides 72 hours sustained therapeutic coverage.',
       contraindications: 'Avoid in late gestation animals.',
     ),
     DrugItem(
@@ -535,7 +535,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 14,
       meatWithdrawalDays: 42,
       instructionsEn: 'Single injection deep in neck muscles. Specific cure for tick-borne Theileriosis.',
-      instructionsMr: 'मानेच्या खोल स्नायूत एकदाच द्या. गोचीडजन्य ताप व थायलेरियावर अत्यंत गुणकारी.',
+      instructionsMr: 'Single injection deep in neck muscles. Specific cure for tick-borne Theileriosis.',
       contraindications: 'Do not administer IV. Guard against local site swelling.',
     ),
     DrugItem(
@@ -553,7 +553,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 1,
       meatWithdrawalDays: 3,
       instructionsEn: 'Administer IM once or twice daily to relieve acute pruritus and allergic edema.',
-      instructionsMr: 'अंगावरील गांधी आणि खाज कमी करण्यासाठी स्नायूत २ वेळा द्या.',
+      instructionsMr: 'Administer IM once or twice daily to relieve acute pruritus and allergic edema.',
       contraindications: 'Mild transient sedation may occur.',
     ),
     DrugItem(
@@ -563,7 +563,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       category: 'Intramammary Antibiotic',
       scheduleH: true,
       targetSpecies: ['cattle', 'buffalo'],
-      indications: ['Clinical Bovine Mastitis (कासदाह)'],
+      indications: ['Clinical Bovine Mastitis'],
       route: 'Intramammary Infusion',
       dosePerKgMg: 0.0,
       concentrationMgMl: 0.0,
@@ -571,13 +571,13 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 4,
       meatWithdrawalDays: 7,
       instructionsEn: 'Strip quarter completely. Infuse 1 syringe per affected teat after milking for 3 days.',
-      instructionsMr: 'दूध पूर्ण काढून सडाच्या तोंडावाटे औषध आत सोडा व वर चोळा. सलग ३ दिवस.',
+      instructionsMr: 'Strip quarter completely. Infuse 1 syringe per affected teat after milking for 3 days.',
       contraindications: 'For intramammary use only. Never inject parenterally.',
     ),
     DrugItem(
       id: 'DRUG-KMN4',
       name: 'KMNO4 + Boro-Glycerine',
-      tradeNames: ['लाल औषध', 'Boro-Glycerine Gel'],
+      tradeNames: ['Potassium Permanganate', 'Boro-Glycerine Gel'],
       category: 'Topical Antiseptic',
       scheduleH: false,
       targetSpecies: ['cattle', 'buffalo', 'goat', 'sheep', 'pig'],
@@ -589,7 +589,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 0,
       meatWithdrawalDays: 0,
       instructionsEn: 'Wash lesions twice daily with dilute pink KMNO4 solution. Apply Boro-Glycerine to mouth ulcers.',
-      instructionsMr: '१:१००० लाल औषधाच्या पाण्याने तोंड व खूर धुवा. जिभेवर बोरो ग्लिसरीन लावा.',
+      instructionsMr: 'Wash lesions twice daily with dilute pink KMNO4 solution. Apply Boro-Glycerine to mouth ulcers.',
       contraindications: 'External topical use only. Do not inject.',
     ),
     DrugItem(
@@ -607,7 +607,7 @@ class OfflineFirstVeterinaryRepository implements VeterinaryRepository {
       milkWithdrawalDays: 0,
       meatWithdrawalDays: 0,
       instructionsEn: 'Administer 5-10 ml deep IM or 10 ml orally daily for 7 days to accelerate recovery.',
-      instructionsMr: 'कातडी आणि कास लवकर भरून येण्यासाठी दररोज ५ ते १० मिली स्नायूत किंवा पाजा.',
+      instructionsMr: 'Administer 5-10 ml deep IM or 10 ml orally daily for 7 days to accelerate recovery.',
       contraindications: 'Safe supportive therapy at recommended dosages.',
     ),
   ];

@@ -16,11 +16,11 @@ import 'package:bioherd/features/symptoms/presentation/ai_results_screen.dart';
 
 /// 5-Step Symptom Reporting & AI Disease Detection Wizard Screen
 /// Steps:
-/// 0. Select Animal (जनावर निवडा)
-/// 1. Photo Capture / Upload (छायाचित्रे)
-/// 2. Body System Checklist (लक्षणे सूची)
-/// 3. Marathi Vernacular Note & Voice (आवाजी संदेश व शेरा)
-/// 4. Review & AI Diagnosis (पडताळणी व AI निष्कर्ष)
+/// 0. Select Animal
+/// 1. Photo Capture / Upload
+/// 2. Body System Checklist
+/// 3. Farmer Notes & Voice
+/// 4. Review & AI Diagnosis
 class SymptomWizardScreen extends StatefulWidget {
   final AnimalModel? initialAnimal;
 
@@ -118,15 +118,15 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
   String _getStepSubtitle(int step) {
     switch (step) {
       case 0:
-        return 'पायरी १/५: जनावर निवडा';
+        return 'Step 1/5: Select Animal';
       case 1:
-        return 'पायरी २/५: छायाचित्र जोडा';
+        return 'Step 2/5: Capture / Upload Photos';
       case 2:
-        return 'पायरी ३/५: लक्षणे सूची';
+        return 'Step 3/5: Body System Checklist';
       case 3:
-        return 'पायरी ४/५: शेरा व आवाज नोंद';
+        return 'Step 4/5: Farmer Notes & Voice';
       case 4:
-        return 'पायरी ५/५: AI निदान व निष्कर्ष';
+        return 'Step 5/5: AI Diagnosis & Review';
       default:
         return '';
     }
@@ -208,7 +208,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Selected Animal / निवडलेले जनावर', style: AppTextStyles.h3()),
+          Text('Selected Animal', style: AppTextStyles.h3()),
           AppSpacing.vSpace12,
           BioHerdCard(
             padding: const EdgeInsets.all(AppSpacing.space16),
@@ -269,7 +269,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Select Patient Animal', style: AppTextStyles.h3()),
-        Text('आजार तपासणीसाठी आपल्या गोठ्यातील जनावर निवडा', style: AppTextStyles.caption(color: AppColors.neutral500)),
+        Text('Select an animal from your herd for disease screening', style: AppTextStyles.caption(color: AppColors.neutral500)),
         AppSpacing.vSpace16,
 
         // Search Box
@@ -320,7 +320,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
                             id: 'mock-019',
                             farmId: 'farm-001',
                             species: AnimalSpeciesEnum.cattle,
-                            breed: 'Gir / गीर',
+                            breed: 'Gir',
                             sex: 'Female',
                             tagId: 'MH-PUN-019',
                             createdAt: DateTime.now(),
@@ -390,7 +390,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Capture Clinical Photos', style: AppTextStyles.h3()),
-        Text('त्वचा, तोंड किंवा कासेची छायाचित्रे जोडा (ऐच्छिक परंतु अत्यंत उपयुक्त)', style: AppTextStyles.caption(color: AppColors.neutral500)),
+        Text('Add photos of skin lesions, mouth, or udder (optional but recommended)', style: AppTextStyles.caption(color: AppColors.neutral500)),
         AppSpacing.vSpace16,
 
         // Guidance banner
@@ -406,7 +406,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Photography Protocol / छायाचित्र टिप्स', style: AppTextStyles.label(color: AppColors.info800)),
+                    Text('Photography Protocol', style: AppTextStyles.label(color: AppColors.info800)),
                     const SizedBox(height: 4),
                     Text(
                       '• Photograph under direct bright daylight\n• Keep camera 1–2 feet away from lesions\n• Visual analysis contributes 35% weight to BIOHERD AI ensemble',
@@ -502,7 +502,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
         AppSpacing.vSpace16,
 
         // Quick simulation buttons
-        Text('Quick Sample Lesions / प्रात्यक्षिक फोटो:', style: AppTextStyles.label()),
+        Text('Quick Sample Lesions:', style: AppTextStyles.label()),
         AppSpacing.vSpace8,
         Wrap(
           spacing: 8,
@@ -556,7 +556,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Clinical Symptoms Checklist', style: AppTextStyles.h3()),
-                Text('दिसणारी लक्षणे निवडा (४५% AI वेटेज)', style: AppTextStyles.caption(color: AppColors.neutral500)),
+                Text('Select observed symptoms (45% AI weight)', style: AppTextStyles.caption(color: AppColors.neutral500)),
               ],
             ),
             Container(
@@ -702,39 +702,39 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Vernacular Marathi / Voice Input', style: AppTextStyles.h3()),
-        Text('आपल्या स्थानिक भाषेत लक्षणे सांगा किंवा नोंदवा (२०% AI वेटेज)', style: AppTextStyles.caption(color: AppColors.neutral500)),
+        Text('Describe symptoms in your own words (20% AI weight)', style: AppTextStyles.caption(color: AppColors.neutral500)),
         AppSpacing.vSpace16,
 
         // Fast Marathi phrases
-        Text('Common Vernacular Phrases (एक क्लिक मध्ये जोडा):', style: AppTextStyles.label()),
+        Text('Common Clinical Phrases (Click to add):', style: AppTextStyles.label()),
         AppSpacing.vSpace8,
         Wrap(
           spacing: 8,
           runSpacing: 8,
           children: [
             ActionChip(
-              label: const Text('अंगावर भरपूर गाठी व ताप (LSD)'),
-              onPressed: () => _appendPhrase('अंगावर भरपूर गाठी व ताप आहे'),
+              label: const Text('High fever & lumps on body (LSD)'),
+              onPressed: () => _appendPhrase('High fever and nodular lumps on body'),
             ),
             ActionChip(
-              label: const Text('तोंडातून फेस, सतत लाळ व जीभ लाल (FMD)'),
-              onPressed: () => _appendPhrase('तोंडाला फेस येत आहे व लाळ गळते आहे'),
+              label: const Text('Mouth froth & salivation (FMD)'),
+              onPressed: () => _appendPhrase('Excessive salivation and mouth ulcers'),
             ),
             ActionChip(
-              label: const Text('कास गरम, सुजलेली व दुधात गाठी (Mastitis)'),
-              onPressed: () => _appendPhrase('कास खूप सुजली आहे आणि दुधात गाठी येतात'),
+              label: const Text('Hot swollen udder & clots (Mastitis)'),
+              onPressed: () => _appendPhrase('Hot swollen udder and milk flakes'),
             ),
             ActionChip(
-              label: const Text('मांडीवर चरचर वाजणारी सूज (Black Quarter)'),
-              onPressed: () => _appendPhrase('मांडीवर सूज आहे आणि लंगडत चालते'),
+              label: const Text('Thigh swelling & lameness (Black Quarter)'),
+              onPressed: () => _appendPhrase('Crepitant thigh swelling and severe lameness'),
             ),
             ActionChip(
-              label: const Text('घसा सुजला व घरघर आवाज (HS)'),
-              onPressed: () => _appendPhrase('घसा सुजला आहे आणि श्वास घेताना त्रास होतो'),
+              label: const Text('Throat swelling & gasping (HS)'),
+              onPressed: () => _appendPhrase('Swollen throat and labored breathing'),
             ),
             ActionChip(
-              label: const Text('लघवी गडद लाल / कॉफी रंग (Babesiosis)'),
-              onPressed: () => _appendPhrase('लघवी कॉफी रंगाची येत आहे'),
+              label: const Text('Dark coffee-colored urine (Babesiosis)'),
+              onPressed: () => _appendPhrase('Dark red or coffee-colored urine'),
             ),
           ],
         ),
@@ -742,8 +742,8 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
 
         // Text area
         BioHerdInputField(
-          label: 'Farmer Symptoms Description / सविस्तर वर्णन',
-          hintText: 'उदा. दोन दिवसांपासून चारा खात नाही, अंगावर गाठी आहेत...',
+          label: 'Farmer Symptoms Description',
+          hintText: 'e.g. Off feed for two days, lumps on skin, high fever...',
           controller: _descController,
           maxLines: 4,
           onChanged: (val) {
@@ -766,8 +766,8 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Marathi Voice Note / आवाजी नोंद', style: AppTextStyles.label().copyWith(fontWeight: FontWeight.bold)),
-                        Text('ग्रामीण शेतकऱ्यांसाठी सुलभ व्हॉइस रेकॉर्डिंग', style: AppTextStyles.caption(color: AppColors.neutral500)),
+                        Text('Voice Note Recording', style: AppTextStyles.label().copyWith(fontWeight: FontWeight.bold)),
+                        Text('Hands-free vernacular audio description', style: AppTextStyles.caption(color: AppColors.neutral500)),
                       ],
                     ),
                   ),
@@ -782,7 +782,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
                   onPressed: () {
                     context.read<SymptomBloc>().add(const SetWizardVoiceNoteEvent('audio_note_mh_019.wav'));
                     if (_descController.text.isEmpty) {
-                      _descController.text = 'गाय चारा खात नाही, अंगावर गोल गाठी आल्या आहेत व ताप आहे.';
+                      _descController.text = 'Cow stopped feeding, nodular lumps on skin and high fever.';
                       context.read<SymptomBloc>().add(SetWizardDescriptionEvent(_descController.text));
                     }
                   },
@@ -842,7 +842,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Review & Multi-Modal Diagnosis', style: AppTextStyles.h3()),
-        Text('सर्व माहिती तपासा आणि BIOHERD AI विश्लेषण चालवा', style: AppTextStyles.caption(color: AppColors.neutral500)),
+        Text('Review all inputs and execute BIOHERD AI analysis', style: AppTextStyles.caption(color: AppColors.neutral500)),
         AppSpacing.vSpace16,
 
         // Summary Card
@@ -851,7 +851,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Case Summary / सारांश', style: AppTextStyles.label().copyWith(fontWeight: FontWeight.bold)),
+              Text('Case Summary', style: AppTextStyles.label().copyWith(fontWeight: FontWeight.bold)),
               const Divider(),
               _buildSummaryRow('Animal Tag:', animal?.tagId ?? 'None'),
               _buildSummaryRow('Species & Breed:', '${animal?.species.displayName} (${animal?.breed})'),
@@ -905,7 +905,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
             )
           else
             BioHerdButton(
-              label: 'Run AI Disease Diagnosis / AI विश्लेषण करा',
+              label: 'Run AI Disease Diagnosis',
               icon: const Icon(PhosphorIconsRegular.sparkle, color: Colors.white, size: 20),
               onPressed: () {
                 context.read<SymptomBloc>().add(const SubmitWizardReportEvent());
@@ -1037,7 +1037,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
           if (canGoBack)
             Expanded(
               child: BioHerdButton(
-                label: 'Back / मागे',
+                label: 'Back',
                 variant: BioHerdButtonVariant.secondary,
                 onPressed: () {
                   context.read<SymptomBloc>().add(SetWizardStepEvent(step - 1));
@@ -1048,7 +1048,7 @@ class _SymptomWizardScreenState extends State<SymptomWizardScreen> {
           if (canGoNext)
             Expanded(
               child: BioHerdButton(
-                label: 'Next / पुढे',
+                label: 'Next',
                 onPressed: () {
                   context.read<SymptomBloc>().add(SetWizardStepEvent(step + 1));
                 },
