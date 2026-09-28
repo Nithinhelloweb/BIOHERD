@@ -1,49 +1,27 @@
-# ==============================================================================
-# BIOHERD — Render Infrastructure Blueprint (render.yaml)
-# Smart India Hackathon 2026 (SIH26128)
-# Deploy with 1-Click via Render: New + -> Blueprint -> Connect Repository
-# ==============================================================================
-
+# Exported from Render on 2026-09-28T11:14:03Z
+version: "1"
 services:
-  # ----------------------------------------------------------------------------
-  # BIOHERD FastAPI Backend Web Service
-  # ----------------------------------------------------------------------------
-  - type: web
-    name: bioherd-api
-    runtime: python
-    rootDir: backend
-    plan: free
-    region: oregon # Options: oregon, frankfurt, singapore, ohio
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips='*'
-    healthCheckPath: /api/v1/health/liveness
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.9
-      - key: ENVIRONMENT
-        value: production
-      - key: DEBUG
-        value: "false"
-      - key: SECRET_KEY
-        generateValue: true
-      - key: CORS_ORIGINS
-        value: '["*"]'
-      # Default: Zero-setup asynchronous SQLite database
-      # To switch to Render PostgreSQL, uncomment the block below and the 'databases' block at the bottom
-      - key: DATABASE_URL
-        value: sqlite+aiosqlite:///./bioherd_prod.db
-        # fromDatabase:
-        #   name: bioherd-postgres
-        #   property: connectionString
-
-# ------------------------------------------------------------------------------
-# Optional Managed PostgreSQL on Render (Uncomment below to enable)
-# Render Free Tier provides a 30-day free PostgreSQL instance.
-# Alternatively, you can use Neon or Supabase free tiers by setting DATABASE_URL.
-# ------------------------------------------------------------------------------
-# databases:
-#   - name: bioherd-postgres
-#     plan: free
-#     databaseName: bioherd_db
-#     user: bioherd_user
-#     region: oregon
+- type: web
+  name: bioherd-api
+  runtime: python
+  repo: https://github.com/Nithinhelloweb/BIOHERD
+  plan: free
+  envVars:
+  - key: CORS_ORIGINS
+    sync: false
+  - key: DATABASE_URL
+    sync: false
+  - key: SECRET_KEY
+    sync: false
+  - key: DEBUG
+    sync: false
+  - key: ENVIRONMENT
+    sync: false
+  - key: PYTHON_VERSION
+    sync: false
+  region: oregon
+  buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+  startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips='*'
+  healthCheckPath: /api/v1/health/liveness
+  autoDeployTrigger: commit
+  rootDir: backend
