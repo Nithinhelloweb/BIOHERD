@@ -1,8 +1,10 @@
+import os
 import time
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from app.api.v1.router import api_router
 from app.core.config import settings
 from app.core.logging import get_logger, setup_logging
@@ -85,8 +87,35 @@ async def structlog_request_middleware(request: Request, call_next):
 # Include V1 Router
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
+# Determine static frontend directory (Flutter Web build)
+static_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "static"))
+has_static_frontend = os.path.isdir(static_dir) and os.path.exists(os.path.join(static_dir, "index.html"))
+
+if has_static_frontend:
+    logger.info("flutter_web_frontend_enabled", path=static_dir)
+
+    @app.middleware("http")
+    async def spa_fallback_middleware(request: Request, call_next):
+        """Serve Flutter Web SPA assets and client-side route fallbacks on 404."""
+        response = await call_next(request)
+        if response.status_code == 404 and request.method == "GET":
+            path = request.url.path.lstrip("/")
+            # Do not intercept API, documentation, or OpenAPI paths
+            if not (path.startswith("api/") or path.startswith("docs") or path.startswith("redoc") or path == "openapi.json"):
+                target_file = os.path.join(static_dir, path)
+                if path and os.path.isfile(target_file):
+                    return FileResponse(target_file)
+                # Client-side SPA navigation fallback
+                if "text/html" in request.headers.get("accept", ""):
+                    return FileResponse(os.path.join(static_dir, "index.html"))
+        return response
+
 @app.get("/", tags=["Root"])
-async def root():
+async def root(request: Request):
+    """Serve Flutter Web app to web browsers, and project metadata JSON to API clients."""
+    accept = request.headers.get("accept", "")
+    if has_static_frontend and "text/html" in accept and "application/json" not in accept:
+        return FileResponse(os.path.join(static_dir, "index.html"))
     return {
         "project": "BIOHERD",
         "description": "Livestock Disease Early Detection & Management System",
