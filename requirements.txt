@@ -1,0 +1,2 @@
+# Root requirements.txt for Render / cloud hosts deploying from repository root
+-r backend/requirements.txt
