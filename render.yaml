@@ -27,7 +27,7 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: CORS_ORIGINS
-        value: "*"
+        value: '["*"]'
       # Default: Zero-setup asynchronous SQLite database
       # To switch to Render PostgreSQL, uncomment the block below and the 'databases' block at the bottom
       - key: DATABASE_URL

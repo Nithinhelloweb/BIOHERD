@@ -1,4 +1,4 @@
-from typing import Any, List
+from typing import Any, List, Union
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -65,7 +65,8 @@ class Settings(BaseSettings):
     MINIO_BUCKET_NAME: str = "bioherd-assets"
 
     # CORS Whitelist (Flutter Web & Admin Dashboards)
-    CORS_ORIGINS: List[str] = [
+    # Using Union[str, List[str]] prevents pydantic-settings from forcing json.loads on plain strings like "*"
+    CORS_ORIGINS: Union[str, List[str]] = [
         "http://localhost:3000",
         "http://localhost:8080",
         "http://localhost:5000",
@@ -73,10 +74,10 @@ class Settings(BaseSettings):
         "*",
     ]
 
-    @field_validator("CORS_ORIGINS", mode="before")
+    @field_validator("CORS_ORIGINS", mode="after")
     @classmethod
     def assemble_cors_origins(cls, v: Any) -> List[str]:
-        """Support comma-separated strings or JSON arrays from cloud env vars."""
+        """Support raw '*', comma-separated strings, or JSON arrays from cloud env vars."""
         if isinstance(v, str):
             v_str = v.strip()
             if not v_str or v_str == "*":
