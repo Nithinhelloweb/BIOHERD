@@ -23,11 +23,18 @@ class AuthRepository {
   /// Timeout for all HTTP calls. Keep short to fail fast in offline mode.
   static const _kTimeout = Duration(seconds: 8);
 
+  /// Default base URL with fallback to local development. Override with --dart-define=AUTH_API_BASE_URL=https://...
+  static const String defaultAuthBaseUrl = String.fromEnvironment(
+    'AUTH_API_BASE_URL',
+    defaultValue: 'http://127.0.0.1:8000/api/v1/auth',
+  );
+
   AuthRepository({
-    this.baseUrl = 'http://127.0.0.1:8000/api/v1/auth',
+    String baseUrl = defaultAuthBaseUrl,
     http.Client? client,
     required this.storage,
-  }) : _client = client ?? http.Client();
+  })  : baseUrl = baseUrl,
+        _client = client ?? http.Client();
 
   // ─────────────────────────────────────────────
   // Internal helpers

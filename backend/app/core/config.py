@@ -1,5 +1,5 @@
-from typing import List
-from pydantic import Field
+from typing import Any, List
+from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
@@ -15,6 +15,10 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     ENVIRONMENT: str = "development"
     DEBUG: bool = True
+    PORT: int = Field(
+        default=8000,
+        description="Port for web server (Render automatically sets PORT env var)",
+    )
 
     # Security & Tokens (RS256 / HS256 for dev fallback)
     SECRET_KEY: str = Field(
@@ -35,6 +39,17 @@ class Settings(BaseSettings):
         default="sqlite+aiosqlite:///./bioherd_dev.db",
         description="Async SQLAlchemy database connection string",
     )
+
+    @field_validator("DATABASE_URL", mode="before")
+    @classmethod
+    def assemble_db_connection(cls, v: Any) -> str:
+        """Translate Render/Heroku postgres:// URL scheme to asyncpg driver."""
+        if isinstance(v, str):
+            if v.startswith("postgres://"):
+                return v.replace("postgres://", "postgresql+asyncpg://", 1)
+            elif v.startswith("postgresql://") and not v.startswith("postgresql+asyncpg://"):
+                return v.replace("postgresql://", "postgresql+asyncpg://", 1)
+        return v
 
     # Cache & PubSub: Redis 7
     REDIS_HOST: str = "localhost"
@@ -57,5 +72,24 @@ class Settings(BaseSettings):
         "http://localhost",
         "*",
     ]
+
+    @field_validator("CORS_ORIGINS", mode="before")
+    @classmethod
+    def assemble_cors_origins(cls, v: Any) -> List[str]:
+        """Support comma-separated strings or JSON arrays from cloud env vars."""
+        if isinstance(v, str):
+            v_str = v.strip()
+            if not v_str or v_str == "*":
+                return ["*"]
+            if v_str.startswith("[") and v_str.endswith("]"):
+                import json
+                try:
+                    return json.loads(v_str)
+                except Exception:
+                    pass
+            return [origin.strip() for origin in v_str.split(",") if origin.strip()]
+        elif isinstance(v, (list, tuple)):
+            return list(v)
+        return ["*"]
 
 settings = Settings()

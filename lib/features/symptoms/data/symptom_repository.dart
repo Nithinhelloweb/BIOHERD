@@ -32,18 +32,22 @@ class OfflineFirstSymptomRepository implements SymptomRepository {
   final String _baseUrl;
 
   static const String _storageKey = 'bioherd_symptom_reports_v1';
+  static const String defaultApiBaseUrl = String.fromEnvironment(
+    'API_BASE_URL',
+    defaultValue: 'http://10.0.2.2:8000/api/v1',
+  );
 
   OfflineFirstSymptomRepository({
     required SharedPreferences prefs,
     http.Client? httpClient,
-    String baseUrl = 'http://10.0.2.2:8000/api/v1',
+    String baseUrl = defaultApiBaseUrl,
   })  : _prefs = prefs,
         _httpClient = httpClient,
         _baseUrl = baseUrl;
 
   static Future<OfflineFirstSymptomRepository> create({
     http.Client? httpClient,
-    String baseUrl = 'http://10.0.2.2:8000/api/v1',
+    String baseUrl = defaultApiBaseUrl,
   }) async {
     final prefs = await SharedPreferences.getInstance();
     final repo = OfflineFirstSymptomRepository(

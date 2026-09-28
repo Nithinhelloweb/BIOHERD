@@ -359,6 +359,15 @@ flutter build appbundle --release
 
 ---
 
+## ☁️ Cloud Deployment (Render)
+
+BIOHERD is 100% configured for 1-click cloud deployment on [Render](https://render.com) using the included `render.yaml` Blueprint or Docker.
+
+👉 Read the complete step-by-step instructions in **[RENDER_DEPLOYMENT.md](RENDER_DEPLOYMENT.md)**.
+
+
+---
+
 ## 🤝 Contributing & License
 
 This project was built for the **Smart India Hackathon 2026** under Problem Statement **SIH26128** (Government of Maharashtra).

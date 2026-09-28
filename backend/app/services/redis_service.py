@@ -2,6 +2,7 @@ import json
 import socket
 import time
 from typing import Any, Dict, Optional, Tuple
+from urllib.parse import urlparse
 import redis.asyncio as aioredis
 from app.core.config import settings
 from app.core.logging import get_logger
@@ -40,7 +41,15 @@ class RedisService:
 
     async def ping(self) -> bool:
         """Check Redis connectivity."""
-        if not is_port_reachable(settings.REDIS_HOST, settings.REDIS_PORT):
+        try:
+            parsed = urlparse(self.redis_url)
+            host = parsed.hostname or settings.REDIS_HOST
+            port = parsed.port or settings.REDIS_PORT
+        except Exception:
+            host = settings.REDIS_HOST
+            port = settings.REDIS_PORT
+
+        if not is_port_reachable(host, port):
             self._is_connected = False
             return False
 
